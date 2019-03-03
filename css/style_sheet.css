@@ -1,0 +1,39 @@
+body {
+    margin:0; /* To remove white space on left side */
+}
+
+.navbar {  /* Styling for the navigation bar */
+    background-color: #eee;
+    position: fixed; /* To keep it in view */
+    top: 0;  /* We might need to change this to add the other bar on top */
+    width: 100%; /* Fill the screen */
+    height: 50px;
+    overflow: hidden;
+}
+
+.navbar a { /* Styling links in the navigation bar */
+    color: black;
+    text-align: center;
+    text-decoration: none;  /* No underscore */
+    display: block;
+    float: left;
+    width: 25%;
+    height: 100%;
+    padding-top: 12px; /* Vertically center */
+    font-size: 20px;
+    -webkit-transition-duration: 0.2s; /*Smooth effect*/
+    transition-duration: 0.2s; /*Smooth effect*/
+}
+
+.navbar a:hover {  /* hover effect for links in the navigation bar */
+    background: rgb(71, 168, 74);
+    color: white;
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
+}
+
+.main {  /* just the fill words for test scrolling */
+    padding: 16px;
+    margin-top: 30px;
+    height: 1500px; 
+}        
