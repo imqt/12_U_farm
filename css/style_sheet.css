@@ -58,7 +58,7 @@ body {
     overflow-x: hidden;
 }
 /* SIDE NAVIGATION BAR ᐃ */
-/* For Search bar */
+/* For Search bar ᐁ*/
 input[type=text] {
     width: 130px;
     box-sizing: border-box;
@@ -73,12 +73,12 @@ input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-  
 input[type=text]:focus {
-    width: 100%;
+    width: 90%;
 }
+/* For Search Bar ᐃ*/
 
-
+/* For bottom bar ᐁ*/
 .bottomBar {  /* Styling for the navigation bar */
     background-color: #eee;
     position: fixed; /* To keep it in view */
@@ -88,3 +88,4 @@ input[type=text]:focus {
     overflow: hidden;
     z-index: 99;
 }
+/* For bottom bar ᐃ*/
