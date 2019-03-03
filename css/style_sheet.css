@@ -1,7 +1,17 @@
 body {
     margin:0; /* To remove white space on left side */
+    font-family: "Lato", sans-serif;
 }
 
+.main {  /* just the fill words for test scrolling */
+    padding: 16px 10px;
+    margin-top: 30px;
+    height: 1500px; 
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 12px; /* Increased text to enable scrolling */
+}
+
+/* TOP NAVIGATION BAR ᐁ */
 .navbar {  /* Styling for the navigation bar */
     background-color: #eee;
     position: fixed; /* To keep it in view */
@@ -31,9 +41,39 @@ body {
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
 }
+/* TOP NAVIGATION BAR ᐃ */
 
-.main {  /* just the fill words for test scrolling */
-    padding: 16px;
-    margin-top: 30px;
-    height: 1500px; 
-}        
+
+/* SIDE NAVIGATION BAR ᐁ */
+.sidenav { /* Fixed sidenav, full height */
+    background-color: rgb(248, 248, 248);
+    padding-top: 12px;
+    padding-left: 12px;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+}
+/* SIDE NAVIGATION BAR ᐃ */
+/* For Search bar */
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 10px 12px 10px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
