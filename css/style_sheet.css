@@ -3,11 +3,11 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-.main {  /* just the fill words for test scrolling */
+.main {
     padding: 16px 10px;
-    margin-top: 30px;
-    height: 1500px; 
-    margin-left: 200px; /* Same as the width of the sidenav */
+    margin-top: 25px; /* To stay away from the top navbar */
+    height: 1500px; /* to demonstrate scrolling */
+    margin-left: 210px; /* Same as the width of the sidenav */
     font-size: 12px; /* Increased text to enable scrolling */
 }
 
@@ -72,8 +72,19 @@ input[type=text] {
     padding: 10px 12px 10px 12px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-  }
+}
   
-  input[type=text]:focus {
+input[type=text]:focus {
     width: 100%;
-  }
+}
+
+
+.bottomBar {  /* Styling for the navigation bar */
+    background-color: #eee;
+    position: fixed; /* To keep it in view */
+    bottom: 0;
+    width: 100%; /* Fill the screen */
+    height: 25px;
+    overflow: hidden;
+    z-index: 99;
+}
