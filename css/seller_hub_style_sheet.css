@@ -1,0 +1,141 @@
+body {
+    margin:0; /* To remove white space on left side */
+    font-family: "Lato", sans-serif;
+}
+
+.main {
+    padding: 16px 10px;
+    margin-top: 25px; /* To stay away from the top navbar */
+    height: 1500px; /* to demonstrate scrolling */
+    margin-left: 210px; /* Same as the width of the sidenav */
+    font-size: 16px; /* Increased text to enable scrolling */
+}
+
+input[type=text], textarea {
+    width: 75%;
+    display: block;
+    background-color: rgb(248, 248, 248);
+    font-family: "Lato";
+    font-size: 16px;
+}
+
+input[type=number] {
+    display: inline-block;
+    width: 50px;
+    background-color: rgb(248, 248, 248);
+}
+
+.product, .description, .quantity, .photo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.newlistingbutton {
+    background-color: rgb(71, 168, 74);
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 37.5%;
+    opacity: 0.8;
+}
+
+.newlistingbutton:hover {
+    opacity: 1;
+}
+
+/* TOP NAVIGATION BAR ᐁ */
+.navbar {  /* Styling for the navigation bar */
+    background-color: #eee;
+    position: fixed; /* To keep it in view */
+    top: 0;  /* We might need to change this to add the other bar on top */
+    width: 100%; /* Fill the screen */
+    height: 50px;
+    overflow: hidden;
+}
+
+.navbar a { /* Styling links in the navigation bar */
+    color: black;
+    text-align: center;
+    text-decoration: none;  /* No underscore */
+    display: block;
+    float: left;
+    width: 25%;
+    height: 100%;
+    padding-top: 12px; /* Vertically center */
+    padding-bottom: 15px;
+    font-size: 20px;
+    -webkit-transition-duration: 0.2s; /*Smooth effect*/
+    transition-duration: 0.2s; /*Smooth effect*/
+}
+
+.navbar a:hover {  /* hover effect for links in the navigation bar */
+    background: rgb(71, 168, 74);
+    color: white;
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
+    height:100%;
+}
+/* TOP NAVIGATION BAR ᐃ */
+
+
+/* SIDE NAVIGATION BAR ᐁ */
+.sidenav { /* Fixed sidenav, full height */
+    background-color: rgb(248, 248, 248);
+    padding-top: 12px;
+    padding-left: 12px;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    overflow-x: hidden;
+}
+
+.sidenav a { /* Styling links in the navigation bar */
+    color: black;
+    text-align: left;
+    text-decoration: none;  /* No underscore */
+    float: left;
+    width: 75%;
+    height: 100%;
+    font-size: 14px;
+    -webkit-transition-duration: 0.2s; /*Smooth effect*/
+    transition-duration: 0.2s; /*Smooth effect*/
+    padding-bottom: 7px;
+}
+
+.sidenav a:hover {  /* hover effect for links in the navigation bar */
+    background: rgb(71, 168, 74);
+    color: white;
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
+}
+
+#newlisting {
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    margin-left: -25px;
+}
+
+li ul li {
+    margin-left: -10px;
+}
+
+/* SIDE NAVIGATION BAR ᐃ */
+
+/* For bottom bar ᐁ*/
+.bottomBar {  /* Styling for the navigation bar */
+    background-color: #eee;
+    position: fixed; /* To keep it in view */
+    bottom: 0;
+    width: 100%; /* Fill the screen */
+    height: 25px;
+    overflow: hidden;
+    z-index: 99;
+}
+/* For bottom bar ᐃ*/

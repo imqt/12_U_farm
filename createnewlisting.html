@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Hub</title>
+    <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
+</head>
+<body>
+    <div class="topbar">
+
+    </div>
+    
+    <div class="navbar">
+        <center>
+        <a href="#about">About</a>
+        <a href="#marketPlace">Market Place</a>
+        <a href="#farmers">Farmers</a>
+        <a href="#contactUs">Contact Us</a>
+        </center>
+    </div>
+    
+    <div class="sidenav">
+        <!-- <input type="checkbox" name="" value=""><br> -->
+        <ul>
+            <li><a class="sideNavHeaders" href="SellerHub.html">Overview</a></li>
+            <li><a class="sideNavHeaders" href="#mylistings">My Listings</a>
+                <ul>
+                    <li><a class="sideNavSubHeaders" id = "newlisting" href="#createnewlisting">Create New Listing</a></li>
+                    <li><a class="sideNavSubHeaders" href="#currentlistings">View Current Listings</a></li>
+                </ul>
+            </li>
+            <li><a class="sideNavHeaders" href="#orders">Orders</a></li>
+            <li><a class="sideNavHeaders" href="#ratings">Ratings</a></li>
+            <li><a class="sideNavHeaders" href="#performance">Performance</a></li>
+        </ul>
+    <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_checked -->
+    <!-- Check box and form tutorial -->
+        
+    </div>
+    <div class="bottomBar">
+        
+    </div>
+
+    <form action="/action_page.php">
+        <div class="main">
+            <h1>Create New Listing</h1>
+            <p>Please complete the following form to create a new Listing</p>
+            <hr>
+
+            <div class="product">
+                <label for="product"><strong>Product</strong></label>
+                <input type="text" placeholder="Enter Product Name" name="product" required>
+            </div>
+
+            <div class="description">
+                <label for="description"><strong>Description</strong></label>
+                <textarea placeholder="Description of Product" name="description" rows="10" cols="40"></textarea>
+            </div>
+
+            <div class="quantity">
+                <label for="quantity"><strong>Quantity</strong></label>
+                <input type="number" name="quantity" placeholder="1">
+                <select name="weight">
+                    <option value="pounds" selected>Pounds</option>
+                    <option value="ounces">Ounces</option>
+                    <option value="grams">Grams</option>
+                    <option value="kilograms">kilograms</option>
+                </select>
+            </div>
+
+            <div class="photo">
+                <label for="photo"><strong>Photos of Product</strong></label>
+                <input type="file" multiple>
+            </div>
+
+            <div>
+                <button type="submit" class="newlistingbutton">Post New Listing</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
