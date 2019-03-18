@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>U-Farm List Of Orders</title>
+    <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
+</head>
+<body>
+    <div class="topbar">
+
+    </div>
+    
+    <div class="navbar">
+        <center>
+        <a href="index.html">About</a>
+        <a href="marketplace.html">Market Place</a>
+        <a href="#farmers">Farmers</a>
+        <a href="Contact_Us.html">Contact Us</a>
+        </center>
+    </div>
+    
+    <div class="sidenav">
+        <!-- <input type="checkbox" name="" value=""><br> -->
+        <ul>
+            <li><a class="sideNavHeaders" href="SellerHub.html">Overview</a></li>
+            <li><a class="sideNavHeaders" href="#mylistings">My Listings</a></li>
+            <li><a class="sideNavHeaders" href="#orders">Orders</a>
+                <ul>
+                    <li><a class="sideNavSubHeaders" id="allorders" href="#orders.html">All Orders</a></li>
+                    <li><a class="sideNavSubHeaders" id="dailyorders" href="ordersbyday.html">Daily Details</a></li>
+                </ul>
+            </li>
+            <li><a class="sideNavHeaders" href="#ratings">Ratings</a></li>
+            <li><a class="sideNavHeaders" href="#performance">Performance</a></li>
+        </ul>
+    <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_checked -->
+    <!-- Check box and form tutorial -->
+        
+    </div>
+    <div class="bottomBar">
+        
+    </div>
+
+    <div class="main">
+        <h1>Daily Details</h1>
+        <div id="dailyOrderTable">
+            <table class="orderTable">
+                <tr>
+                    <th>Order Date
+                        <div class="sortarrows">
+                            <div class="uparrow" id="oduarrow"></div>
+                            <div class="downarrow" id="oddarrow"></div>
+                        </div>
+                    </th>
+                    <th>Order Number
+                        <div class="sortarrows">
+                            <div class="uparrow" id="onuarrow"></div>
+                            <div class="downarrow" id="ondarrow"></div>
+                        </div>
+                    </th>
+                    <th>Pickup Date
+                        <div class="sortarrows">
+                            <div class="uparrow" id="pduarrow"></div>
+                            <div class="downarrow" id="pddarrow"></div>
+                        </div>
+                    </th>
+                    <th>Customer Name
+                        <div class="sortarrows">
+                            <div class="uparrow" id="cnuarrow"></div>
+                            <div class="downarrow" id="cndarrow"></div>
+                        </div>
+                    </th>
+                    <th>Total Order Amount
+                        <div class="sortarrows">
+                            <div class="uparrow" id="oauarrow"></div>
+                            <div class="downarrow" id="oadarrow"></div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <td>July 1, 2019</td>
+                    <td>#17534</td>
+                    <td>July 3, 2019</td>
+                    <td>Nicole S.</td>
+                    <td>$24.79</td>
+                </tr>
+                <tr>
+                    <td>July 1, 2019</td>
+                    <td>#17554</td>
+                    <td>July 3, 2019</td>
+                    <td>Jon S.</td>
+                    <td>$17.89</td>
+                </tr>
+                <tr>
+                    <td>July 1, 2019</td>
+                    <td>#17568</td>
+                    <td>July 5, 2019</td>
+                    <td>Restaurant X</td>
+                    <td>$86.19</td>
+                </tr>
+                <tr>
+                    <td>July 1, 2019</td>
+                    <td>#17569</td>
+                    <td>July 4, 2019</td>
+                    <td>Mike M.</td>
+                    <td>$4.90</td>
+                </tr>
+            </table> 
+        </div>
+        <div id="calendar">   
+            <table class="calendar">
+                <tr id="calendarmonth">
+                    <th id="month" colspan="7">
+                        <div class="leftarrow"></div>
+                        March 2019
+                        <div class="rightarrow"></div>
+                    </th>
+                </tr>
+                <tr id="calendarday">
+                    <td>Sun</td>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                    <td>Wed</td>
+                    <td>Thu</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                </tr>
+                <tr id="week1">
+                    <td id="sun1">30</td>
+                    <td id="mon1">1</td>
+                    <td id="tue1">2</td>
+                    <td id="wed1">3</td>
+                    <td id="thu1">4</td>
+                    <td id="fri1">5</td>
+                    <td id="sat1">6</td>
+                </tr>
+                <tr>
+                    <td id="sun2">7</td>
+                    <td id="mon2">8</td>
+                    <td id="tue2">9</td>
+                    <td id="wed2">10</td>
+                    <td id="thu2">11</td>
+                    <td id="fri2">12</td>
+                    <td id="sat2">13</td>
+                </tr>
+                <tr>
+                    <td id="sun3">14</td>
+                    <td id="mon3">15</td>
+                    <td id="tue3">16</td>
+                    <td id="wed3">17</td>
+                    <td id="thu3">18</td>
+                    <td id="fri3">19</td>
+                    <td id="sat3">20</td>
+                </tr>
+                <tr>
+                    <td id="sun4">21</td>
+                    <td id="mon4">22</td>
+                    <td id="tue4">23</td>
+                    <td id="wed4">24</td>
+                    <td id="thu4">25</td>
+                    <td id="fri4">26</td>
+                    <td id="sat4">27</td>
+                </tr>
+                <tr>
+                    <td id="sun5">28</td>
+                    <td id="mon5">29</td>
+                    <td id="tue5">30</td>
+                    <td id="wed5">31</td>
+                    <td id="thu5">1</td>
+                    <td id="fri5">2</td>
+                    <td id="sat5">3</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+        <script>
+            document.getElementById("dailyorders").style.fontWeight = "bold";
+            document.getElementById("oduarrow").style.borderBottomColor = "grey";
+            document.getElementById("mon1").style.fontWeight = "bold";
+            document.getElementById("sun1").style.color = "grey";
+            document.getElementById("thu5").style.color = "grey";
+            document.getElementById("fri5").style.color = "grey";
+            document.getElementById("sat5").style.color = "grey";
+        </script>
+    </form>
+</body>
+</html>
+

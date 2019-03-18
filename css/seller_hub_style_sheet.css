@@ -113,10 +113,6 @@ input[type=number] {
     transition-duration: 0.6s; /*Smooth effect*/
 }
 
-#newlisting {
-    font-weight: bold;
-}
-
 ul {
     list-style: none;
     margin-left: -25px;
@@ -139,3 +135,93 @@ li ul li {
     z-index: 99;
 }
 /* For bottom bar ᐃ*/
+
+/* For Full Order Table ᐁ*/
+.orderTable {
+    width: 100%;
+    border: 2px solid black;
+    border-spacing: 0px;
+}
+
+.orderTable th, td {
+    text-align: center;
+    padding: 1.5px;
+}
+
+.orderTable tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.sortarrows {
+    display:inline-block;
+}
+
+.uparrow, .downarrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.downarrow {
+    border-top: 5px solid lightgray;
+}
+
+.uparrow {
+    border-bottom: 5px solid lightgray;
+    margin-bottom: 1.5px;
+}
+/* For Full Order Table ᐃ*/
+
+/* For Daily Order Table ᐁ*/
+#dailyOrderTable {
+    width: 65%;
+    display: inline-block;
+    border: 1px solid black;
+    position: fixed top left;
+}
+/* For Daily Order Table ᐃ*/
+
+/* For Calendar ᐁ*/
+#calendar {
+    width: 30%;
+    display: inline-block;
+    position: absolute;
+}
+
+.calendar {
+    border: 1px solid black;
+    width: 90%;
+    margin: auto;
+}
+
+.leftarrow, .rightarrow {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+}
+
+.leftarrow {
+    border-right: 5px solid lightgray;
+    margin-right: 2px;
+}
+
+.rightarrow {
+    border-left: 5px solid lightgray;
+    margin-left: 2px;
+}
+
+.calendar th, td {
+    text-align: center;
+}
+
+#month {
+    padding-bottom: 5px;
+}
+
+#calendarday {
+    font-weight: bold;
+}
+/* For Calendar ᐃ*/
