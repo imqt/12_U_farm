@@ -125,7 +125,7 @@ li ul li {
 /* SIDE NAVIGATION BAR ᐃ */
 
 /* For bottom bar ᐁ*/
-.bottomBar {  /* Styling for the navigation bar */
+.bottombar {  /* Styling for the navigation bar */
     background-color: #eee;
     position: fixed; /* To keep it in view */
     bottom: 0;
