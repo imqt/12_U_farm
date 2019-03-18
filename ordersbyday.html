@@ -25,7 +25,7 @@
             <li><a class="sideNavHeaders" href="#mylistings">My Listings</a></li>
             <li><a class="sideNavHeaders" href="#orders">Orders</a>
                 <ul>
-                    <li><a class="sideNavSubHeaders" id="allorders" href="#orders.html">All Orders</a></li>
+                    <li><a class="sideNavSubHeaders" id="allorders" href="orders.html">All Orders</a></li>
                     <li><a class="sideNavSubHeaders" id="dailyorders" href="ordersbyday.html">Daily Details</a></li>
                 </ul>
             </li>
@@ -41,26 +41,26 @@
     </div>
 
     <div class="main">
-        <h1>Daily Details</h1>
+        <h1>Daily Details - July 1, 2019</h1>
         <div id="dailyOrderTable">
             <table class="orderTable">
                 <tr>
-                    <th>Order Date
-                        <div class="sortarrows">
-                            <div class="uparrow" id="oduarrow"></div>
-                            <div class="downarrow" id="oddarrow"></div>
-                        </div>
-                    </th>
                     <th>Order Number
                         <div class="sortarrows">
                             <div class="uparrow" id="onuarrow"></div>
                             <div class="downarrow" id="ondarrow"></div>
                         </div>
                     </th>
-                    <th>Pickup Date
+                    <th>Produce
                         <div class="sortarrows">
-                            <div class="uparrow" id="pduarrow"></div>
-                            <div class="downarrow" id="pddarrow"></div>
+                            <div class="uparrow" id="puarrow"></div>
+                            <div class="downarrow" id="pdarrow"></div>
+                        </div>
+                    </th>
+                    <th>Quantity
+                        <div class="sortarrows">
+                            <div class="uparrow" id="quarrow"></div>
+                            <div class="downarrow" id="qdarrow"></div>
                         </div>
                     </th>
                     <th>Customer Name
@@ -69,40 +69,40 @@
                             <div class="downarrow" id="cndarrow"></div>
                         </div>
                     </th>
-                    <th>Total Order Amount
+                    <th>Pickup Time
                         <div class="sortarrows">
-                            <div class="uparrow" id="oauarrow"></div>
-                            <div class="downarrow" id="oadarrow"></div>
+                            <div class="uparrow" id="ptuarrow"></div>
+                            <div class="downarrow" id="ptdarrow"></div>
                         </div>
                     </th>
                 </tr>
                 <tr>
-                    <td>July 1, 2019</td>
                     <td>#17534</td>
-                    <td>July 3, 2019</td>
+                    <td>Various</td>
+                    <td>7 lbs</td>
                     <td>Nicole S.</td>
-                    <td>$24.79</td>
+                    <td>8:00 AM</td>
                 </tr>
                 <tr>
-                    <td>July 1, 2019</td>
                     <td>#17554</td>
-                    <td>July 3, 2019</td>
+                    <td>Potatoes</td>
+                    <td>3 lbs</td>
                     <td>Jon S.</td>
-                    <td>$17.89</td>
+                    <td>9:30 AM</td>
                 </tr>
                 <tr>
-                    <td>July 1, 2019</td>
-                    <td>#17568</td>
-                    <td>July 5, 2019</td>
-                    <td>Restaurant X</td>
-                    <td>$86.19</td>
-                </tr>
-                <tr>
-                    <td>July 1, 2019</td>
                     <td>#17569</td>
-                    <td>July 4, 2019</td>
+                    <td>Various</td>
+                    <td>5 lbs</td>
                     <td>Mike M.</td>
-                    <td>$4.90</td>
+                    <td>10:30 AM</td>
+                </tr>
+                <tr>
+                    <td>#17568</td>
+                    <td>Various</td>
+                    <td>33.5 lbs</td>
+                    <td>Restaurant X</td>
+                    <td>11:00 AM</td>
                 </tr>
             </table> 
         </div>
@@ -174,7 +174,7 @@
     </div>
         <script>
             document.getElementById("dailyorders").style.fontWeight = "bold";
-            document.getElementById("oduarrow").style.borderBottomColor = "grey";
+            document.getElementById("ptuarrow").style.borderBottomColor = "grey";
             document.getElementById("mon1").style.fontWeight = "bold";
             document.getElementById("sun1").style.color = "grey";
             document.getElementById("thu5").style.color = "grey";
