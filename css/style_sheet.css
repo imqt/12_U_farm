@@ -5,17 +5,15 @@ body {
 
 .main {
     padding: 16px 10px;
-    margin-top: 25px; /* To stay away from the top navbar */
-    height: 1500px; /* to demonstrate scrolling */
+    margin-top: 43px; /* To stay away from the top navbar */
     margin-left: 210px; /* Same as the width of the sidenav */
-    font-size: 12px; /* Increased text to enable scrolling */
 }
 
 /* TOP NAVIGATION BAR ᐁ */
 .navbar {  /* Styling for the navigation bar */
     background-color: #eee;
     position: fixed; /* To keep it in view */
-    top: 0;  /* We might need to change this to add the other bar on top */
+    top: 25px;  /* We might need to change this to add the other bar on top */
     width: 100%; /* Fill the screen */
     height: 50px;
     overflow: hidden;
@@ -30,6 +28,7 @@ body {
     width: 25%;
     height: 100%;
     padding-top: 12px; /* Vertically center */
+    padding-bottom: 15px;
     font-size: 20px;
     -webkit-transition-duration: 0.2s; /*Smooth effect*/
     transition-duration: 0.2s; /*Smooth effect*/
@@ -40,6 +39,7 @@ body {
     color: white;
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
+    height:100%;
 }
 /* TOP NAVIGATION BAR ᐃ */
 
@@ -91,5 +91,13 @@ input[type=text]:focus {
 /* For bottom bar ᐃ*/
 
 /* For top bar */
-.topbar
+.topbar {
+    background-color: #eee;
+    position: fixed; /* To keep it in view */
+    top: 0;
+    width: 100%; /* Fill the screen */
+    height: 25px;
+    overflow: hidden;
+    z-index: 99;
+}
 /* For top bar */

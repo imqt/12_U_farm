@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style_sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index_stylesheet.css"/>
     <title>U-Farm</title>
 </head>
 
@@ -26,12 +27,53 @@
     </div>
 
     <div class="main">
-    	<h1>Main page</h1>
-    	<h1>This is the landing page for U-Farm</h1>
-	    <h2 style="font-family: cursive;">Hey, it's Troye Bui</h2>
-	    <h2 style="color:red;">Kuan Ting Dillon Yeh</h2>
-	    <h2 style="color:aqua;">Hi there, my name is Nick Liaw.</h2>
+
     </div>
+
+<div class="container">
+</div>
+<div class="content display-container" style="max-width:800px">
+  <img class="mySlides" src="img\1.jpg">
+  <img class="mySlides" src="img\2.jpg">
+  <img class="mySlides" src="img\3.jpg">
+  <div class="center container section large text-white display-bottommiddle" style="width:100%">
+    <div class="left hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="right hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="badge demo border transparent hover-white" onclick="currentDiv(1)"></span>
+    <span class="badge demo border transparent hover-white" onclick="currentDiv(2)"></span>
+    <span class="badge demo border transparent hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " white";
+}
+</script>
+
 
 
 </body>
