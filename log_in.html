@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDY0u4aTYkbjbu42DnbOtYBBuoD93P516Y",
+        authDomain: "u-farm.firebaseapp.com",
+        databaseURL: "https://u-farm.firebaseio.com",
+        projectId: "u-farm",
+        storageBucket: "u-farm.appspot.com",
+        messagingSenderId: "166743546426"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />    
+</head>
+<body>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+    <h1>Welcome to U-Farm</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+
+    <script type="text/javascript" src="js/firebaseauthentication.js"></script> 
+
+</body>
+</html>
