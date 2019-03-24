@@ -52,31 +52,12 @@ body {
     height: 100%;
     width: 200px;
     position: fixed;
-    top: 50px;
+    top: 75px;
     left: 0;
     z-index: 1;
     overflow-x: hidden;
 }
 /* SIDE NAVIGATION BAR ᐃ */
-/* For Search bar ᐁ*/
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 10px 12px 10px 12px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-input[type=text]:focus {
-    width: 90%;
-}
-/* For Search Bar ᐃ*/
 
 /* For bottom bar ᐁ*/
 .bottombar {  /* Styling for the navigation bar */
