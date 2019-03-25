@@ -1,7 +1,3 @@
-.mySlides {display:none}
-.left, .right, .badge {cursor:pointer}
-.badge {height:13px;width:13px;padding:0}
-
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 html{
     -ms-text-size-adjust:100%;
@@ -10,36 +6,15 @@ html{
     font-family:Verdana,sans-serif;
     font-size:15px;line-height:1.5;
 }
-body{margin:0}
 a{
     background-color:transparent;
     -webkit-text-decoration-skip:objects
 }
+
 a:active,a:hover{outline-width:0}
-.mySlides{
-    max-width:100%;
-    width:100%;
-    height:auto;
-}
 img{vertical-align:middle}
 a{color:inherit}
-.badge{
-    background-color:#000;
-    color:#fff;display:inline-block;
-    padding-left:8px;padding-right:8px;
-    text-align:center;
-    border-radius:50%
-}
 .display-container{position:relative}
-.content{
-    margin-left:auto;
-    margin-right:auto;
-    max-width:980px
-}
-.display-bottommiddle{position:absolute;
-    left:50%;bottom:0;
-    transform:translate(-50%,0%);
-    -ms-transform:translate(-50%,0%)}
 .container{padding:0.01em 16px}
 .center{text-align:center!important}
 .border{border:1px solid #ccc!important}
@@ -49,3 +24,10 @@ a{color:inherit}
 .white,.hover-white:hover{color:#000!important;background-color:#fff!important}
 .text-khaki,.hover-text-khaki:hover{color:#b4aa50!important}
 .text-white,.hover-text-white:hover{color:#fff!important}
+.mySlides {display:none}
+.left, .right, .badge {cursor:pointer}
+.badge {height:13px;width:13px;padding:0}
+.mySlides{max-width:100%;width:100%;height:auto;}
+.badge{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center;border-radius:50%}
+.content{margin-left:auto;margin-right:auto;max-width:980px}
+.display-bottommiddle{position:absolute;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
