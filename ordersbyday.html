@@ -42,10 +42,13 @@
     </div>
 
     <div class="main">
-        <h1>Daily Details - July 1, 2019</h1>
+        <h1>Daily Details - <span id="titledate"></span></h1>
         <div id="dailyOrderTable">
-            <table class="orderTable">
+            <table class="orderTable" id="dailyDetails">
                 <tr>
+                    <th>Order Month</th>
+                    <th>Order Day</th>
+                    <th>Order Year</th>
                     <th>Order Number
                         <div class="sortarrows">
                             <div class="uparrow" id="onuarrow"></div>
@@ -78,6 +81,9 @@
                     </th>
                 </tr>
                 <tr>
+                    <td>2</td>
+                    <td>24</td>
+                    <td>2019</td>
                     <td>#17534</td>
                     <td>Various</td>
                     <td>7 lbs</td>
@@ -85,6 +91,9 @@
                     <td>8:00 AM</td>
                 </tr>
                 <tr>
+                    <td>2</td>
+                    <td>24</td>
+                    <td>2019</td>
                     <td>#17554</td>
                     <td>Potatoes</td>
                     <td>3 lbs</td>
@@ -92,6 +101,9 @@
                     <td>9:30 AM</td>
                 </tr>
                 <tr>
+                    <td>2</td>
+                    <td>24</td>
+                    <td>2019</td>
                     <td>#17569</td>
                     <td>Various</td>
                     <td>5 lbs</td>
@@ -99,6 +111,9 @@
                     <td>10:30 AM</td>
                 </tr>
                 <tr>
+                    <td>2</td>
+                    <td>25</td>
+                    <td>2019</td>
                     <td>#17568</td>
                     <td>Various</td>
                     <td>33.5 lbs</td>
@@ -107,13 +122,15 @@
                 </tr>
             </table> 
         </div>
-        <div id="calendar">   
-            <table class="calendar">
+        <div id="calendardiv">   
+            <table id="calendartable">
                 <tr id="calendarmonth">
                     <th id="month" colspan="7">
-                        <div class="leftarrow"></div>
-                        March 2019
-                        <div class="rightarrow"></div>
+                        <div id="leftarrow"></div>
+                        <span id="selectedmonth"></span>
+                        <span> </span>
+                        <span id="selectedyear"></span>
+                        <div id="rightarrow"></div>
                     </th>
                 </tr>
                 <tr id="calendarday">
@@ -125,62 +142,139 @@
                     <td>Fri</td>
                     <td>Sat</td>
                 </tr>
-                <tr id="week1">
-                    <td id="sun1">30</td>
-                    <td id="mon1">1</td>
-                    <td id="tue1">2</td>
-                    <td id="wed1">3</td>
-                    <td id="thu1">4</td>
-                    <td id="fri1">5</td>
-                    <td id="sat1">6</td>
-                </tr>
-                <tr>
-                    <td id="sun2">7</td>
-                    <td id="mon2">8</td>
-                    <td id="tue2">9</td>
-                    <td id="wed2">10</td>
-                    <td id="thu2">11</td>
-                    <td id="fri2">12</td>
-                    <td id="sat2">13</td>
-                </tr>
-                <tr>
-                    <td id="sun3">14</td>
-                    <td id="mon3">15</td>
-                    <td id="tue3">16</td>
-                    <td id="wed3">17</td>
-                    <td id="thu3">18</td>
-                    <td id="fri3">19</td>
-                    <td id="sat3">20</td>
-                </tr>
-                <tr>
-                    <td id="sun4">21</td>
-                    <td id="mon4">22</td>
-                    <td id="tue4">23</td>
-                    <td id="wed4">24</td>
-                    <td id="thu4">25</td>
-                    <td id="fri4">26</td>
-                    <td id="sat4">27</td>
-                </tr>
-                <tr>
-                    <td id="sun5">28</td>
-                    <td id="mon5">29</td>
-                    <td id="tue5">30</td>
-                    <td id="wed5">31</td>
-                    <td id="thu5">1</td>
-                    <td id="fri5">2</td>
-                    <td id="sat5">3</td>
-                </tr>
             </table>
         </div>
     </div>
         <script>
+
+            let dict_of_months = {0: "January", 1: "February", 2: "March", 3: "April",
+                                  4: "May", 5: "June", 6: "July", 7: "August", 8: "September",
+                                  9: "October", 10: "November", 11: "December"};
+            
+            let selecteddate;
+
+            function createCalendar() {
+                let week = 1;
+                let day = 1;
+                for (i = 0; i <= 5; i++) {
+                    let tr = document.createElement("tr");
+                    tr.id = "week" + week;
+                    console.log(tr.id);
+                    document.getElementById("calendartable").appendChild(tr);
+                    for (j = 0; j <= 6; j++) {
+                        let td = document.createElement("td");
+                        td.id = "day" + day;
+                        console.log(td.id);
+                        document.getElementById("week" + week).appendChild(td);
+                        td.style.cursor = "pointer";
+                        td.onclick = function() {
+                            document.getElementById(selecteddate).style.fontWeight = "normal";
+                            current_date = td.innerHTML;
+                            selecteddate = td.id;
+                            document.getElementById(td.id).style.fontWeight = "bold";
+                            setMainDate();
+                            setCalendarDate();
+                        }
+                        day++;
+                    }
+                    week++;
+                }
+            }
+
+            function buildCalendar() {
+                let earliestdate = current_date%7;
+                let earliestday = 8 - earliestdate + current_day;
+                let firstday = 1;
+                if (earliestday > 6) {
+                    earliestday -= 7;
+                }
+                for (i = 1; i <= days_in_current_month; i++) {
+                    document.getElementById("day" + (i + earliestday)).innerHTML = i;
+                    document.getElementById("day" + (i + earliestday)).style.color = "black";
+                    if (i == current_date) {
+                        document.getElementById("day" + (i + earliestday)).style.fontWeight = "bold";
+                        selecteddate = document.getElementById("day" + (i + earliestday)).id;
+                    }
+                }
+                for (i = 0; i < earliestday; i++) {
+                    document.getElementById("day" + (earliestday - i)).innerHTML = days_in_previous_month - i;
+                    document.getElementById("day" + (earliestday - i)).style.color = "lightgray";
+                }
+                for (i = days_in_current_month + 1; i + earliestday <= 42; i++) {
+                    document.getElementById("day" + (i + earliestday)).innerHTML = firstday;
+                    document.getElementById("day" + (i + earliestday)).style.color = "lightgray";
+                    firstday++;
+                }
+                if (document.getElementById("day36").style.color == "lightgray") {
+                    document.getElementById("week6").style.display = "none";
+                }
+                else {
+                    document.getElementById("week6").style.display = "table-row";
+                }
+
+            }
+
+            function leftarrowclick () {
+                if (current_month > 0) {
+                    current_month -= 1;
+                }
+                else {
+                    current_month = 11;
+                    current_year -= 1;
+                }
+                document.getElementById(selecteddate).style.fontWeight = "normal";
+                current_date = 1;
+                date = new Date(current_year, current_month, current_date);
+                current_day = date.getDay();
+                days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
+                days_in_previous_month = new Date(current_year, current_month, 0).getDate();
+                buildCalendar();
+                setCalendarDate();
+            }
+
+            function rightarrowclick () {
+                if (current_month < 11) {
+                    current_month += 1;
+                }
+                else {
+                    current_month = 0;
+                    current_year += 1;
+                }
+                document.getElementById(selecteddate).style.fontWeight = "normal";
+                current_date = 1;
+                date = new Date(current_year, current_month, current_date);
+                current_day = date.getDay();
+                days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
+                days_in_previous_month = new Date(current_year, current_month, 0).getDate();
+                buildCalendar();
+                setCalendarDate();
+            }
+            
+            function setMainDate () {
+                document.getElementById("titledate").innerHTML = dict_of_months[current_month] + " " + current_date.toString() + " " + current_year.toString();
+            }
+            function setCalendarDate () {
+                document.getElementById("selectedmonth").innerHTML = dict_of_months[current_month];
+                document.getElementById("selectedyear").innerHTML = current_year;
+            }
+
             document.getElementById("dailyorders").style.fontWeight = "bold";
             document.getElementById("ptuarrow").style.borderBottomColor = "grey";
-            document.getElementById("mon1").style.fontWeight = "bold";
-            document.getElementById("sun1").style.color = "grey";
-            document.getElementById("thu5").style.color = "grey";
-            document.getElementById("fri5").style.color = "grey";
-            document.getElementById("sat5").style.color = "grey";
+            let date = new Date();
+            let current_month = date.getMonth();
+            let current_date = date.getDate();
+            let current_year = date.getFullYear();
+            let current_day = date.getDay();
+            let days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
+            let days_in_previous_month = new Date(current_year, current_month, 0).getDate();
+            createCalendar();
+            buildCalendar();
+            setMainDate();
+            setCalendarDate();
+
+            document.getElementById("leftarrow").onclick = leftarrowclick;
+            document.getElementById("rightarrow").onclick = rightarrowclick;
+
         </script>
     </form>
 </body>
