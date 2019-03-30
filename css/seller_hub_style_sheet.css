@@ -80,9 +80,9 @@ li ul li {
     padding: 1.5px;
 }
 
-.orderTable tr:nth-child(even) {
+/* .orderTable tr:nth-child(even) {
     background-color: lightgray;
-}
+} */
 
 .sortarrows {
     display:inline-block;

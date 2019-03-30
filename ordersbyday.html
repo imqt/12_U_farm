@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>24</td>
+                    <td>25</td>
                     <td>2019</td>
                     <td>#17534</td>
                     <td>Various</td>
@@ -102,7 +102,7 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>24</td>
+                    <td>26</td>
                     <td>2019</td>
                     <td>#17569</td>
                     <td>Various</td>
@@ -112,7 +112,7 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>25</td>
+                    <td>26</td>
                     <td>2019</td>
                     <td>#17568</td>
                     <td>Various</td>
@@ -159,12 +159,10 @@
                 for (i = 0; i <= 5; i++) {
                     let tr = document.createElement("tr");
                     tr.id = "week" + week;
-                    console.log(tr.id);
                     document.getElementById("calendartable").appendChild(tr);
                     for (j = 0; j <= 6; j++) {
                         let td = document.createElement("td");
                         td.id = "day" + day;
-                        console.log(td.id);
                         document.getElementById("week" + week).appendChild(td);
                         td.style.cursor = "pointer";
                         td.onclick = function() {
@@ -174,6 +172,7 @@
                             document.getElementById(td.id).style.fontWeight = "bold";
                             setMainDate();
                             setCalendarDate();
+                            filterTable();
                         }
                         day++;
                     }
@@ -258,6 +257,20 @@
                 document.getElementById("selectedyear").innerHTML = current_year;
             }
 
+            function filterTable() {
+                table = document.getElementById("dailyDetails");
+                row = table.getElementsByTagName("tr");
+                for (i = 1; i < row.length; i++) {
+                    order = row[i].getElementsByTagName("td");
+                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year) {
+                        row[i].style.display = "table-row";
+                    } 
+                    else {
+                        row[i].style.display = "none";
+                    }
+                }
+            }
+
             document.getElementById("dailyorders").style.fontWeight = "bold";
             document.getElementById("ptuarrow").style.borderBottomColor = "grey";
             let date = new Date();
@@ -271,6 +284,7 @@
             buildCalendar();
             setMainDate();
             setCalendarDate();
+            filterTable();
 
             document.getElementById("leftarrow").onclick = leftarrowclick;
             document.getElementById("rightarrow").onclick = rightarrowclick;
