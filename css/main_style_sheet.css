@@ -4,16 +4,17 @@ body {
 }
 
 .main {
-    padding: 16px 10px;
-    margin-top: 43px; /* To stay away from the top navbar */
-    margin-left: 210px; /* Same as the width of the sidenav */
+    padding: 0px 0px;
+    margin-top: 85px; /* To stay away from the top navbar */
+    margin-left: 230px; /* Same as the width of the sidenav */
 }
 
 /* TOP NAVIGATION BAR ᐁ */
 .navbar {  /* Styling for the navigation bar */
     background-color: #eee;
+    background-image: linear-gradient(rgb(69, 202, 69),rgb(133, 207, 133));
     position: fixed; /* To keep it in view */
-    top: 25px;  /* We might need to change this to add the other bar on top */
+    top: 35px;  /* We might need to change this to add the other bar on top */
     width: 100%; /* Fill the screen */
     height: 50px;
     overflow: hidden;
@@ -51,10 +52,10 @@ body {
     padding-left: 12px;
     height: 100%;
     width: 200px;
-    position: fixed;
-    top: 75px;
+    position: absolute;
+    top: 85px;
     left: 0;
-    z-index: 1;
+    z-index: -1;
     overflow-x: hidden;
 }
 /* SIDE NAVIGATION BAR ᐃ */
@@ -65,7 +66,7 @@ body {
     position: fixed; /* To keep it in view */
     bottom: 0;
     width: 100%; /* Fill the screen */
-    height: 25px;
+    height: 35px;
     overflow: hidden;
     z-index: 99;
 }
@@ -77,7 +78,7 @@ body {
     position: fixed; /* To keep it in view */
     top: 0;
     width: 100%; /* Fill the screen */
-    height: 25px;
+    height: 35px;
     overflow: hidden;
     z-index: 99;
 }

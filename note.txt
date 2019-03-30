@@ -1,0 +1,2 @@
+1. Everything that is supposed to be in the middle of the screen (not on the 3 navigation bar) should be placed in the .main <div> tag
+2. Keep common things in the same file and separate the unique stuff.
