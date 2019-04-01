@@ -1,6 +1,6 @@
 /* For Search bar ᐁ*/
 input[type=text] {
-    width: 130px;
+    width: 50px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -13,7 +13,8 @@ input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-input[type=text]:focus {
+
+input[type=text]:focus, input[type=text]:hover  {
     width: 90%;
 }
 /* For Search Bar ᐃ*/

@@ -1,23 +1,27 @@
 body {
-    margin:0; /* To remove white space on left side */
+    margin:0; /* To remove white space on sides */
     font-family: "Lato", sans-serif;
 }
 
 .main {
-    padding: 0px 0px;
-    margin-top: 85px; /* To stay away from the top navbar */
-    margin-left: 230px; /* Same as the width of the sidenav */
+    position: absolute;
+    padding: 20px 10px;
+    margin:0;
+    top: 85px; /* To stay away from the top navbar */
+    left: 230px; /* Same as the width of the sidenav */
+    z-index: -2;
 }
 
 /* TOP NAVIGATION BAR ᐁ */
 .navbar {  /* Styling for the navigation bar */
-    background-color: #eee;
-    background-image: linear-gradient(rgb(69, 202, 69),rgb(133, 207, 133));
+    background-color: white;
     position: fixed; /* To keep it in view */
     top: 35px;  /* We might need to change this to add the other bar on top */
     width: 100%; /* Fill the screen */
     height: 50px;
     overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 99;    
 }
 
 .navbar a { /* Styling links in the navigation bar */
@@ -31,13 +35,12 @@ body {
     padding-top: 12px; /* Vertically center */
     padding-bottom: 15px;
     font-size: 20px;
-    -webkit-transition-duration: 0.2s; /*Smooth effect*/
-    transition-duration: 0.2s; /*Smooth effect*/
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
 }
 
 .navbar a:hover {  /* hover effect for links in the navigation bar */
-    background: rgb(71, 168, 74);
-    color: white;
+    color: rgb(45, 219, 114);
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
     height:100%;
@@ -47,7 +50,6 @@ body {
 
 /* SIDE NAVIGATION BAR ᐁ */
 .sidenav { /* Fixed sidenav, full height */
-    background-color: rgb(248, 248, 248);
     padding-top: 12px;
     padding-left: 12px;
     height: 100%;
@@ -55,9 +57,26 @@ body {
     position: absolute;
     top: 85px;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     overflow-x: hidden;
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
 }
+.sidenav:hover {
+    background-color: rgb(248, 248, 248);
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
+}
+.sidenav p, .opac {
+    opacity: 0;
+}
+.sidenav:hover p, .sidenav:hover .opac{
+    background-color: rgb(248, 248, 248);
+    opacity: 1;
+    -webkit-transition-duration: 0.6s; /*Smooth effect*/
+    transition-duration: 0.6s; /*Smooth effect*/
+}
+
 /* SIDE NAVIGATION BAR ᐃ */
 
 /* For bottom bar ᐁ*/
@@ -68,7 +87,6 @@ body {
     width: 100%; /* Fill the screen */
     height: 35px;
     overflow: hidden;
-    z-index: 99;
 }
 /* For bottom bar ᐃ*/
 
@@ -83,3 +101,7 @@ body {
     z-index: 99;
 }
 /* For top bar */
+
+.itembox {
+    background-color: black;
+}
