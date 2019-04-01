@@ -3,8 +3,21 @@
 <head>
     <title>U-Farm My Hub</title>
     <link rel="stylesheet" type="text/css" href="css/main_style_sheet.css"/>
-
     <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDY0u4aTYkbjbu42DnbOtYBBuoD93P516Y",
+        authDomain: "u-farm.firebaseapp.com",
+        databaseURL: "https://u-farm.firebaseio.com",
+        projectId: "u-farm",
+        storageBucket: "u-farm.appspot.com",
+        messagingSenderId: "166743546426"
+    };
+    firebase.initializeApp(config);
+    </script>
 </head>
 <body>
     <div class="topbar">
@@ -42,46 +55,80 @@
         
     </div>
 
-    <form action="/action_page.php">
-        <div class="main">
-            <h1>Create New Listing</h1>
-            <p>Please complete the following form to create a new listing</p>
-            <hr>
+    <div class="main">
+        <h1>Create New Listing</h1>
+        <p>Please complete the following form to create a new listing</p>
+        <hr>
 
-            <div class="product">
-                <label for="product"><strong>Product</strong></label>
-                <input type="text" placeholder="Enter Product Name" name="product" required>
-            </div>
-
-            <div class="description">
-                <label for="description"><strong>Description</strong></label>
-                <textarea placeholder="Description of Product" name="description" rows="10" cols="40"></textarea>
-            </div>
-
-            <div class="quantity">
-                <label for="quantity"><strong>Quantity</strong></label>
-                <input type="number" name="quantity" placeholder="1">
-                <select name="weight">
-                    <option value="pounds" selected>Pounds</option>
-                    <option value="ounces">Ounces</option>
-                    <option value="grams">Grams</option>
-                    <option value="kilograms">kilograms</option>
-                </select>
-            </div>
-
-            <div class="photo">
-                <label for="photo"><strong>Photos of Product</strong></label>
-                <input type="file" multiple>
-            </div>
-
-            <div>
-                <button type="submit" class="newlistingbutton">Post New Listing</button>
-            </div>
+        <div class="product">
+            <p><strong>Product</strong>
+            <input type="text" placeholder="Enter Product Name" id="product" required></p>
         </div>
-    </form>
+
+        <div class="description">
+            <p><strong>Description</strong>
+            <textarea placeholder="Description of Product" id="description" rows="10" cols="40"></textarea></p>
+        </div>
+
+        <div class="quantity">
+            <p><strong>Quantity</strong></p>
+            <input type="number" placeholder="0" id="quantity">
+            <select name="weight" id="weight">
+                <option value="pounds" selected>Pounds</option>
+                <option value="ounces">Ounces</option>
+                <option value="grams">Grams</option>
+                <option value="kilograms">kilograms</option>
+            </select>
+        </div>
+
+        <div class="photo">
+            <label for="photo"><strong>Photos of Product</strong></label>
+            <input type="file" value="upload" id="photoupload">
+        </div>
+
+        <div>
+            <button id ="submit" class="newlistingbutton">Post New Listing</button>
+        </div>
+    </div>
 
     <script>
+        let number_of_listings;
+        let file;
+
+        var db = firebase.database().ref().child("Listings")
+        db.on(
+            "value",
+            function(snap){
+                dict_of_listings = snap.val();
+                all_listings = Object.keys(dict_of_listings);
+                number_of_listings = all_listings.length;
+            }
+        )
+
+        var photoupload = document.getElementById("photoupload");
+        photoupload.addEventListener("change", function(e) {
+            file = e.target.files[0];
+        })
+
+        function updateDatabase() {
+            let key = "Listing" + number_of_listings
+            let selection = document.getElementById("weight").value;
+            firebase.database().ref("Listings/").update({
+                [key]: {
+                    Name: document.getElementById("product").value,
+                    Description: document.getElementById("description").value,
+                    Quantity: document.getElementById("quantity").value,
+                    Weight: selection
+                }
+            })
+            var storageRef = firebase.storage().ref("produce_pics/" + file.name);
+            storageRef.put(file);
+        }
+
+
+
         document.getElementById("newlisting").style.fontWeight = "bold";
+        document.getElementById("submit").onclick = updateDatabase;
     </script>
 
 </body>
