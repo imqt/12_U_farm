@@ -52,31 +52,31 @@
                     <th>Order Number
                         <div class="sortarrows">
                             <div class="uparrow" id="onuarrow" onclick="sortTableAscending(3)"></div>
-                            <div class="downarrow" id="ondarrow"></div>
+                            <div class="downarrow" id="ondarrow" onclick="sortTableDescending(3)"></div>
                         </div>
                     </th>
                     <th>Produce
                         <div class="sortarrows">
                             <div class="uparrow" id="puarrow" onclick="sortTableAscending(4)"></div>
-                            <div class="downarrow" id="pdarrow"></div>
+                            <div class="downarrow" id="pdarrow" onclick="sortTableDescending(4)"></div>
                         </div>
                     </th>
                     <th>Quantity
                         <div class="sortarrows">
                             <div class="uparrow" id="quarrow" onclick="sortTableAscending(5)"></div>
-                            <div class="downarrow" id="qdarrow"></div>
+                            <div class="downarrow" id="qdarrow" onclick="sortTableDescending(5)"></div>
                         </div>
                     </th>
                     <th>Customer Name
                         <div class="sortarrows">
                             <div class="uparrow" id="cnuarrow" onclick="sortTableAscending(6)"></div>
-                            <div class="downarrow" id="cndarrow"></div>
+                            <div class="downarrow" id="cndarrow" onclick="sortTableDescending(6)"></div>
                         </div>
                     </th>
                     <th>Pickup Time
                         <div class="sortarrows">
                             <div class="uparrow" id="ptuarrow" onclick="sortTableAscending(7)"></div>
-                            <div class="downarrow" id="ptdarrow"></div>
+                            <div class="downarrow" id="ptdarrow" onclick="sortTableDescending(7)"></div>
                         </div>
                     </th>
                 </tr>
@@ -84,7 +84,7 @@
                     <td>2</td>
                     <td>25</td>
                     <td>2019</td>
-                    <td>#17534</td>
+                    <td>17534</td>
                     <td>Various</td>
                     <td>7 lbs</td>
                     <td>Nicole S.</td>
@@ -94,7 +94,7 @@
                     <td>2</td>
                     <td>24</td>
                     <td>2019</td>
-                    <td>#17554</td>
+                    <td>17554</td>
                     <td>Potatoes</td>
                     <td>3 lbs</td>
                     <td>Jon S.</td>
@@ -104,17 +104,17 @@
                     <td>2</td>
                     <td>26</td>
                     <td>2019</td>
-                    <td>#17569</td>
+                    <td>17569</td>
                     <td>Various</td>
                     <td>5 lbs</td>
                     <td>Mike M.</td>
-                    <td>10:30 AM</td>
+                    <td>10:30 PM</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>26</td>
                     <td>2019</td>
-                    <td>#17568</td>
+                    <td>17568</td>
                     <td>Various</td>
                     <td>33.5 lbs</td>
                     <td>Restaurant X</td>
@@ -270,18 +270,32 @@
             }
 
             function sortTableAscending(column) {
-                console.log("sorting")
                 table = document.getElementById("dailyDetails");
                 rows = table.rows;
-                console.log(rows)
                 sorting = true;
                 while (sorting) {
-                    console.log("in while loop")
-                    console.log(rows)
                     switching = false;
-                    for (i = 1; i < rows.length; i++) {
-                        if (rows[i].getElementsByTagName("td")[column] > rows[i+1].getElementsByTagName("td")[column]) {
-                            console.log("in forloop if statement")
+                    for (i = 1; i < rows.length - 1; i++) {
+                        if (rows[i].getElementsByTagName("td")[column].innerHTML > rows[i+1].getElementsByTagName("td")[column].innerHTML) {
+                            switching = true;
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            break;
+                        }
+                    }
+                    if (switching == false) {
+                        sorting = false;
+                    }
+                } 
+            }
+
+            function sortTableDescending(column) {
+                table = document.getElementById("dailyDetails");
+                rows = table.rows;
+                sorting = true;
+                while (sorting) {
+                    switching = false;
+                    for (i = 1; i < rows.length - 1; i++) {
+                        if (rows[i].getElementsByTagName("td")[column].innerHTML < rows[i+1].getElementsByTagName("td")[column].innerHTML) {
                             switching = true;
                             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                             break;
