@@ -185,3 +185,4 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .button:hover{color:#000!important;background-color:#ccc!important}
 .transparent,.hover-none:hover{background-color:transparent!important}
 .hover-none:hover{box-shadow:none!important}
+a{background-color: white!important}

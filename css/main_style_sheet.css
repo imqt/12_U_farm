@@ -9,7 +9,7 @@ body {
     margin:0;
     top: 85px; /* To stay away from the top navbar */
     left: 230px; /* Same as the width of the sidenav */
-    z-index: 99;
+    z-index: 98;
     width: 100%; 
 }
 
@@ -22,7 +22,7 @@ body {
     height: 50px;
     overflow: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    z-index: 99;    
+    z-index: 99!important;    
 }
 
 .navbar a { /* Styling links in the navigation bar */
@@ -51,12 +51,12 @@ body {
 
 /* SIDE NAVIGATION BAR ᐁ */
 .sidenav { /* Fixed sidenav, full height */
-    padding-top: 35px;
+    padding-top: 70px;
     padding-left: 12px;
     height: 100%;
     width: 200px;
     position: fixed;
-    top: 35px;
+    top: 0px;
     left: 0;
     z-index: 0;
     overflow-x: hidden;
