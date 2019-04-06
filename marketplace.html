@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/main_style_sheet.css"/>
+    <link rel="stylesheet" href="css/externalstylesheet.css">
+    <link rel="stylesheet" href="css/colors.css">
+
     <link rel="stylesheet" type="text/css" href="css/market_place.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>U-Farm Marketplace</title>
@@ -17,17 +20,14 @@
 </head>
 
 <body>
-    <div class="topbar">
+    <!-- Links (sit on top) -->
+    <div class="top">
+        <div class="row large light-grey">
+          <div class="col s4"><a href="#" class="button block">About</a></div>
+          <div class="col s4"><a href="#plans" class="button block">Marketplace</a></div>
+          <div class="col s4"><a href="#about" class="button block">Farmers</a></div>
         </div>
-
-    <div class="navbar">
-        <center>
-        <a href="#about">About</a>
-        <a href="#marketPlace">Market Place</a>
-        <a href="#farmers">Farmers</a>
-        <a href="#contacUs">Contact Us</a>
-        </center>
-    </div>
+      </div>
     
     <div class="sidenav">
         <form>
@@ -62,121 +62,146 @@
     <!-- Check box and form tutorial -->
     </div>
 
-    <div class="bottombar">    
-    </div>
 
     <div class="main">
-        <!-- <div class = 'itembox' id = "product1">
-            <div class = 'visual' id = 'visual1'>
-                <img id = 'produce1'>
-                <label>Farmer</label>
-                <span class = 'farmer'></span> <br>
-                <label>Rating</label>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product2">
-            <div class = 'visual' id = 'visual2'>
-                <img id = 'produce2'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product3">
-            <div class = 'visual' id = 'visual3'>
-                <img id = 'produce3'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product4">
-            <div class = 'visual' id = 'visual4'>
-                <img id = 'produce4'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product5">
-            <div class = 'visual' id = 'visual5'>
-                <img id = 'produce5'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product6">
-            <div class = 'visual' id = 'visual6'>
-                <img id = 'produce6'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product7">
-            <div class = 'visual' id = 'visual7'>
-                <img id = 'produce7'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div>
-        <div class = 'itembox' id = "product8">
-            <div class = 'visual' id = 'visual8'>
-                <img id = 'produce8'>
-                <span class = 'farmer'></span>
-                <span class = 'rating'></span>
-            </div>
-            <p></p>
-        </div> -->
         <div class="content" style="max-width:1100px;margin-top:80px;margin-bottom:80px; margin-left: 0px; margin-right: 0px;">
 
             <!-- Grid -->
             <div class="row-padding" id="plans" style="width:100%">
                 <div class="center padding-32">
-                <h3>Pricing Plans</h3>
                 </div>
             
-                <div class="third margin-bottom">
-                <ul class="ul border center card hover-shadow" style="margin-left: 10px; margin-right: 10px;">
-                    <li class="light-green xlarge"></li>
-                    <li class="padding-16"><b>Product:</b> Carrots</li>
-                    <li class="padding-16"><b>Farmer:</b> Allen</li>
-                    <li class="padding-16"><b>Rating:</b> *****</li>
-            
-                </ul>
-                </div>
-            
-                <div class="third margin-bottom">
-                <ul class="ul border card hover-shadow" style="margin-left: 10px; margin-right: 10px;">
-                    <li class="xlarge padding-32" style="background-color: white;"><img src="img/1.jpg" style="width:100%"></li>
-                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
-
-            
-                </ul>
-                </div>
-            
-                <div class="third margin-bottom">
-                <ul class="ul border center card hover-shadow" style="margin-left: 10px; margin-right: 10px;">
-                    <li class="light-green xlarge padding-32">img</li>
-                    <li class="padding-16"><b>Product:</b> Brocoli</li>
-                    <li class="padding-16"><b>Farmer:</b> Beef</li>
-                    <li class="padding-16"><b>Rating:</b> Blob</li>
-                
-<!--                 <div class="third margin-bottom">
+                <div class="quarter margin-bottom">
                 <ul class="ul border center card hover-shadow">
-                    <li class="light-green xlarge padding-32">img</li>
-                    <li class="padding-16"><b>Product:</b> Brocoli</li>
-                    <li class="padding-16"><b>Farmer:</b> Beef</li>
-                    <li class="padding-16"><b>Rating:</b> Blob</li>
+                    <li class="xlarge">img</li>
+                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
             
+                <div class="quarter margin-bottom">
+                <ul class="ul border card hover-shadow">
+                    <li class="xlarge" style="background-color: white;">img</li>
+                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
             
-                </ul> -->
-                </div>
+                <div class="quarter margin-bottom">
+                <ul class="ul border center card hover-shadow">
+                    <li class="xlarge">img</li>
+                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>               
+                <div class="quarter margin-bottom">
+                <ul class="ul border center card hover-shadow">
+                    <li class=" xlarge">img</li>
+                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
             </div>
+            <div class="row-padding" id="plans" style="width:100%">
+                    <div class="center padding-32">
+                    </div>
+                
+                    <div class="quarter margin-bottom">
+                    <ul class="ul border center card hover-shadow">
+                        <li class="xlarge">img</li>
+                        <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                    </ul></div>
+                
+                    <div class="quarter margin-bottom">
+                    <ul class="ul border card hover-shadow">
+                        <li class="xlarge" style="background-color: white;">img</li>
+                        <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                    </ul></div>
+                
+                    <div class="quarter margin-bottom">
+                    <ul class="ul border center card hover-shadow">
+                        <li class="xlarge">img</li>
+                        <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                    </ul></div>               
+                    <div class="quarter margin-bottom">
+                    <ul class="ul border center card hover-shadow">
+                        <li class=" xlarge">img</li>
+                        <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                    </ul></div>
+                </div>
+                <div class="row-padding" id="plans" style="width:100%">
+                        <div class="center padding-32">
+                        </div>
+                    
+                        <div class="quarter margin-bottom">
+                        <ul class="ul border center card hover-shadow">
+                            <li class="xlarge">img</li>
+                            <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                        </ul></div>
+                    
+                        <div class="quarter margin-bottom">
+                        <ul class="ul border card hover-shadow">
+                            <li class="xlarge" style="background-color: white;">img</li>
+                            <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                        </ul></div>
+                    
+                        <div class="quarter margin-bottom">
+                        <ul class="ul border center card hover-shadow">
+                            <li class="xlarge">img</li>
+                            <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                        </ul></div>               
+                        <div class="quarter margin-bottom">
+                        <ul class="ul border center card hover-shadow">
+                            <li class=" xlarge">img</li>
+                            <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                        </ul></div>
+                    </div>
+                    <div class="row-padding" id="plans" style="width:100%">
+                            <div class="center padding-32">
+                            </div>
+                        
+                            <div class="quarter margin-bottom">
+                            <ul class="ul border center card hover-shadow">
+                                <li class="xlarge">img</li>
+                                <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                            </ul></div>
+                        
+                            <div class="quarter margin-bottom">
+                            <ul class="ul border card hover-shadow">
+                                <li class="xlarge" style="background-color: white;">img</li>
+                                <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                            </ul></div>
+                        
+                            <div class="quarter margin-bottom">
+                            <ul class="ul border center card hover-shadow">
+                                <li class="xlarge">img</li>
+                                <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                            </ul></div>               
+                            <div class="quarter margin-bottom">
+                            <ul class="ul border center card hover-shadow">
+                                <li class=" xlarge">img</li>
+                                <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                            </ul></div>
+                        </div>
+                        <div class="row-padding" id="plans" style="width:100%">
+                                <div class="center padding-32">
+                                </div>
+                            
+                                <div class="quarter margin-bottom">
+                                <ul class="ul border center card hover-shadow">
+                                    <li class="xlarge">img</li>
+                                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                                </ul></div>
+                            
+                                <div class="quarter margin-bottom">
+                                <ul class="ul border card hover-shadow">
+                                    <li class="xlarge" style="background-color: white;">img</li>
+                                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                                </ul></div>
+                            
+                                <div class="quarter margin-bottom">
+                                <ul class="ul border center card hover-shadow">
+                                    <li class="xlarge">img</li>
+                                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                                </ul></div>               
+                                <div class="quarter margin-bottom">
+                                <ul class="ul border center card hover-shadow">
+                                    <li class=" xlarge">img</li>
+                                    <li class="padding-16"><b>Product:</b> Apples <br> <b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                                </ul></div>
+                            </div>
         </div>
     </div>
 

@@ -51,12 +51,12 @@ body {
 
 /* SIDE NAVIGATION BAR ᐁ */
 .sidenav { /* Fixed sidenav, full height */
-    padding-top: 12px;
+    padding-top: 35px;
     padding-left: 12px;
     height: 100%;
     width: 200px;
     position: absolute;
-    top: 85px;
+    top: 35px;
     left: 0;
     z-index: 0;
     overflow-x: hidden;
@@ -79,30 +79,3 @@ body {
 }
 
 /* SIDE NAVIGATION BAR ᐃ */
-
-/* For bottom bar ᐁ*/
-.bottombar {  /* Styling for the navigation bar */
-    background-color: #eee;
-    position: fixed; /* To keep it in view */
-    bottom: 0;
-    width: 100%; /* Fill the screen */
-    height: 35px;
-    overflow: hidden;
-}
-/* For bottom bar ᐃ*/
-
-/* For top bar */
-.topbar {
-    background-color: #eee;
-    position: fixed; /* To keep it in view */
-    top: 0;
-    width: 100%; /* Fill the screen */
-    height: 35px;
-    overflow: hidden;
-    z-index: 99;
-}
-/* For top bar */
-
-.itembox {
-    background-color: black;
-}
