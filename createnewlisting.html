@@ -123,7 +123,7 @@
             firebase.database().ref("Listings/").update({
                 UniqueListings: unique + 1
             })
-            var storageRef = firebase.storage().ref("produce_pics/" + key + "/" + file.name);
+            var storageRef = firebase.storage().ref("produce_pics/" + key + "/" + "produce.jpg");
             storageRef.put(file);
         }
 
