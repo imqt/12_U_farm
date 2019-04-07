@@ -94,14 +94,13 @@
     <script>
         let number_of_listings;
         let file;
+        let unique;
 
-        var db = firebase.database().ref().child("Listings")
+        var db = firebase.database().ref().child("Listings/UniqueListings")
         db.on(
             "value",
             function(snap){
-                dict_of_listings = snap.val();
-                all_listings = Object.keys(dict_of_listings);
-                number_of_listings = all_listings.length;
+                unique = snap.val();
             }
         )
 
@@ -111,7 +110,7 @@
         })
 
         function updateDatabase() {
-            let key = "Listing" + number_of_listings
+            let key = "Listing" + unique
             let selection = document.getElementById("weight").value;
             firebase.database().ref("Listings/").update({
                 [key]: {
@@ -121,11 +120,12 @@
                     Weight: selection
                 }
             })
-            var storageRef = firebase.storage().ref("produce_pics/" + file.name);
+            firebase.database().ref("Listings/").update({
+                UniqueListings: unique + 1
+            })
+            var storageRef = firebase.storage().ref("produce_pics/" + key + "/" + file.name);
             storageRef.put(file);
         }
-
-
 
         document.getElementById("newlisting").style.fontWeight = "bold";
         document.getElementById("submit").onclick = updateDatabase;
