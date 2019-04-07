@@ -251,7 +251,7 @@
                 <b>Product:</b> <span id="pro02"> Vegetables </span><br/>
                 <b>Farmer:</b> <span id="farm02"> Brussels westbrook</span><br/>
                 <b>Rating:</b> <span id="farr02"> 99</span></li>
-
+                <p id="FarmerID" style="display:none">A12345678</p>
                 <p><strong>Username</strong><input class="input border" type="text" placeholder="Enter your user Name" id="userName2" required></p>
                 <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity2" required min=1 max=100>
                     <select name="weight" id="weight2" required>
@@ -356,7 +356,8 @@
                     Day: date.slice(8, 10),
                     Month: date.slice(5, 7),
                     Year: date.slice(0, 4),
-                    UserId: current[2]
+                    UserId: current[2],
+                    FarmerID: document.getElementById('FarmerID').innerHTML
                 }
             });
             firebase.database().ref("Orders/").update({
