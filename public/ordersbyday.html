@@ -7,6 +7,23 @@
     <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src =js/setup_firebase.js></script>
+    <script>
+        let current = [];
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                var uid = user.uid;
+                current.push(displayName);
+                current.push(email);
+                current.push(uid);
+            } else {
+                // User is signed out.
+                // ...
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -43,6 +60,7 @@
                     <th>Order Month</th>
                     <th>Order Day</th>
                     <th>Order Year</th>
+                    <th>Farmer ID</th>
                     <th>Order Number
                         <div class="sortarrows">
                             <div class="uparrow" id="onuarrow" onclick="sortTableAscending(3, id)"></div>
@@ -150,6 +168,7 @@
                             full_order.push(details['Month']);
                             full_order.push(details['Day']);
                             full_order.push(details['Year']);
+                            full_order.push(details['FarmerID']);
                             full_order.push(details['Number']);
                             full_order.push(details['Produce']);
                             full_order.push(details['Quantity']);
@@ -249,7 +268,7 @@
                 row = table.getElementsByTagName("tr");
                 for (i = 1; i < row.length; i++) {
                     order = row[i].getElementsByTagName("td");
-                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year) {
+                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year && order[3] == current[2]) {
                         row[i].style.display = "table-row";
                     } 
                     else {
