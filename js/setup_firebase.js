@@ -1,6 +1,7 @@
 (function() {
+
     // Initialize Firebase
-    let config = {
+    var config = {
         apiKey: "AIzaSyDY0u4aTYkbjbu42DnbOtYBBuoD93P516Y",
         authDomain: "u-farm.firebaseapp.com",
         databaseURL: "https://u-farm.firebaseio.com",
