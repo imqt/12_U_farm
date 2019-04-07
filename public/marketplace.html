@@ -289,7 +289,8 @@
         </footer>
     </div>
     <script>
-        var db = firebase.database().ref().child("Listings")
+        var displayName = '2';
+        var db = firebase.database().ref().child("Listings");
         db.on(
             "value",
             function(snap){
@@ -297,7 +298,7 @@
                 all_listings = Object.keys(dict_of_listings);
                 all_produce = Object.values(dict_of_listings);
                 console.log(all_listings);
-                console.log(all_listings)
+                console.log(all_listings);
                 for (let i=1; i<all_listings.length;i++) {
                     storageRef = firebase.storage().ref();
                     let ref = 'produce_pics/' + all_listings[i-1] + '/produce.jpg';
@@ -305,14 +306,32 @@
                     imagesRef = storageRef.child(ref);
                     imagesRef.getDownloadURL().then(function(url) {
                         console.log(i);
-                        let img = "img" + i
+                        let img = "img" + i;
                         console.log(img);
                         document.getElementById(img).src = url;
-                    })
+                    });
                     document.getElementById('pro'+i).innerHTML = all_produce[i-1]['Name']            
                 }
             }
-        )
+        );
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var photoURL = user.photoURL;
+                var isAnonymous = user.isAnonymous;
+                var uid = user.uid;
+                var providerData = user.providerData;
+                console.log(displayName)
+                // ...
+            } else {
+                // User is signed out.
+                // ...
+            }
+        });
+        console.log(5)
     </script>
 
           
