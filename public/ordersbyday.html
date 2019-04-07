@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/main_style_sheet.css"/>
     <link rel="stylesheet" href="css/externalstylesheet.css">
     <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src =js/setup_firebase.js></script>
 </head>
 <body>
 
@@ -75,7 +77,7 @@
                         </div>
                     </th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>2</td>
                     <td>25</td>
                     <td>2019</td>
@@ -83,7 +85,7 @@
                     <td>Various</td>
                     <td>7 lbs</td>
                     <td>Nicole S.</td>
-                    <td>8:00 AM</td>
+                    <td>08:00</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -93,7 +95,7 @@
                     <td>Potatoes</td>
                     <td>3 lbs</td>
                     <td>Jon S.</td>
-                    <td>9:30 AM</td>
+                    <td>09:30</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -103,7 +105,7 @@
                     <td>Various</td>
                     <td>5 lbs</td>
                     <td>Mike M.</td>
-                    <td>10:30 PM</td>
+                    <td>22:30</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -113,8 +115,8 @@
                     <td>Various</td>
                     <td>33.5 lbs</td>
                     <td>Restaurant X</td>
-                    <td>11:00 AM</td>
-                </tr>
+                    <td>11:00</td>
+                </tr> -->
             </table> 
         </div>
 
@@ -173,6 +175,40 @@
                     week++;
                 }
             }
+
+            function buildOrderTable() {
+                var db = firebase.database().ref().child("Orders")
+                db.on(
+                    "value",
+                    function(snap){
+                        dict_of_orders = snap.val();
+                        all_orders = Object.keys(dict_of_orders);
+                        all_details = Object.values(dict_of_orders);
+                        for (let i=0; i<all_orders.length;i++) {
+                            let tr = document.createElement("tr");
+                            tr.id = all_orders[i];
+                            document.getElementById('dailyDetails').appendChild(tr);
+                            let details = all_details[i];
+                            let full_order = []
+                            full_order.push(details['Month']);
+                            full_order.push(details['Day']);
+                            full_order.push(details['Year']);
+                            full_order.push(details['Number']);
+                            full_order.push(details['Produce']);
+                            full_order.push(details['Quantity']);
+                            full_order.push(details['CustName']);
+                            full_order.push(details['Pickup']);
+                            for (let j=0; j<full_order.length; j++) {
+                                let td = document.createElement("td");
+                                tr.appendChild(td);
+                                td.innerHTML = full_order[j];
+                                console.log(full_order[j])
+                            }          
+                        }
+                    }
+                )
+            }
+
 
             function buildCalendar() {
                 let earliestdate = current_date%7;
@@ -311,8 +347,6 @@
                 current_sort = id;
             }
 
-
-
             document.getElementById("dailyorders").style.fontWeight = "bold";
             document.getElementById("ptuarrow").style.borderBottomColor = "grey";
             let date = new Date();
@@ -323,6 +357,7 @@
             let days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
             let days_in_previous_month = new Date(current_year, current_month, 0).getDate();
             let current_sort = "ptuarrow";
+            buildOrderTable();
             sortTableAscending(7, current_sort);
             createCalendar();
             buildCalendar();
