@@ -16,6 +16,9 @@
     .tag {height:15px;width:15px;padding:0;margin-top:6px}
     .product {max-width: 100%;} 
     </style>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src="js/setup_firebase.js"></script>
+
 </head>
 
 <body>
@@ -24,9 +27,9 @@
 <!-- Links (sit on top) -->
 <div class="top" style="position:fixed">
   <div class="row large light-grey">
-    <div class="col s4"><a href="#" class="button block">About</a></div>
-    <div class="col s4"><a href="#plans" class="button block">Marketplace</a></div>
-    <div class="col s4"><a href="#about" class="button block">Farmers</a></div>
+    <div class="col s4" id="about"><a href="#" class="button block">About</a></div>
+    <div class="col s4" id="marketplace"><a href="#plans" class="button block">Marketplace</a></div>
+    <div class="col s4" id="farmer"><a href="#about" class="button block">Farmers</a></div>
   </div>
 </div>
 
@@ -56,7 +59,7 @@
       </div>
     </div>
   </div>
-  
+
 
 
 </div>
@@ -78,6 +81,27 @@
 <script type="text/javascript" src="js/index_slide.js"></script> 
 <script>
 showDivs(slideIndex);
+document.getElementById("marketplace").onclick = function(){
+    location.href = 'marketplace.html'
+};
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        console.log("signed-in")
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
+    } else {
+        // User is signed out.
+        // ...
+    }
+});
 </script>
+<script src = js/firebaseauthenticationobserver.js></script>
 </body>
 </html>
