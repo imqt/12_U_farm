@@ -77,8 +77,9 @@
     <script>
         let number_of_listings;
         let file;
-        let unique;
         let current = [];
+
+        let unique;
         var db = firebase.database().ref().child("Listings/UniqueListings");
         db.on(
             "value",
@@ -86,6 +87,7 @@
                 unique = snap.val();
             }
         );
+        
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.

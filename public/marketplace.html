@@ -248,10 +248,9 @@
                 <div class="center">
                     <button type="button" class="button padding-large green margin-bottom" 
                     onclick="document.getElementById('buy2').style.display='none';"
-                    onclick="updateDatabase(document.getElementById('userName2').value,
-                    document.getElementById('quantity2').value,
-                    document.getElementById('weight2').value,
-                    document.getElementById('pickup2').value)">Order</button>
+                    onclick="updateDatabase(document.getElementById('userName2').value, document.getElementById('quantity2').value,
+                    document.getElementById('weight2').value, document.getElementById('pickup2').value),
+                    document.getElementById('pro02').value">Order</button>
                 </div>
             </div>
         </div>
@@ -326,24 +325,31 @@
             }
         )
 
-        function updateDatabase(username, quantity, weight, pickup) {
-            let key = "Listing" + unique
-            let selection = document.getElementById("weight").value;
-            firebase.database().ref("Listings/").update({
+        // 
+        let unique;
+        var db = firebase.database().ref().child("Orders/UniqueOrders");
+        db.on(
+            "value",
+            function(snap){
+                unique = snap.val();
+            }
+        );
+        function updateDatabase(username, quantity, weight, pickup, produce) {
+            let key = "Order" + unique
+            let selection = weight;
+            firebase.database().ref("Orders/").update({
                 [key]: {
-                    Username: document.getElementById("product").value,
-                    Description: document.getElementById("description").value,
-                    Quantity: document.getElementById("quantity").value,
-                    Weight: selection
+                    Username: username,
+                    Quantity: quantity,
+                    Weight: selection,
+                    Pickup: pickup,
+                    Produce: produce
                 }
             })
-            firebase.database().ref("Listings/").update({
-                UniqueListings: unique + 1
+            firebase.database().ref("Orders/").update({
+                UniqueOrders: unique + 1
             })
-            var storageRef = firebase.storage().ref("produce_pics/" + key + "/" + "produce.jpg");
-            storageRef.put(file);
         }
-        document.getElementById("submit").onclick = updateDatabase;
     
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
