@@ -31,7 +31,7 @@ a:active, a:hover {
 
 img{
     border-style:none;
-    vertical-align:middle
+    vertical-align:middle;
 }
 .image{max-width:100%;height:auto}
 button {
@@ -46,16 +46,7 @@ input{
     margin:0;
     overflow:visible
 }
-/* button [type=button],[type=reset],[type=submit]{-webkit-appearance:button}
-button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner{border-style:none;padding:0}
-button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring{outline:1px dotted ButtonText} */
-/* [type=checkbox],[type=radio]{padding:0}
-[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
-[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
-[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}
-::-webkit-input-placeholder{color:inherit;opacity:0.54}
-::-webkit-file-upload-button{-webkit-appearance:button;font:inherit} */
-/* End extract */
+
 
 h1{font-size:36px}
 h2{font-size:30px}
@@ -153,7 +144,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .spin{animation:spin 1s infinite linear}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
 .animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
-.animate-opacity{animation:opac 1.5s}@keyframes opac{from{opacity:0} to{opacity:1}}
+.animate-opacity{animation:opac 1.5s}@keyframes opac{from{opacity:0.6} to{opacity:1}}
 .animate-top{position:relative;animation:animatetop 0.7s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
 .animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
 .animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}

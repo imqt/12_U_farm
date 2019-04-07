@@ -17,8 +17,20 @@ input[type=text] {
 input[type=text]:focus, input[type=text]:hover  {
     width: 90%;
     border: 2px solid #ccc;
-
-
+}
+.modal input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 10px 12px 10px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 /* For Search Bar ᐃ*/
 
@@ -58,3 +70,23 @@ input[type=text]:focus, input[type=text]:hover  {
 .light-green,.hover-light-green:hover{color:#000!important;background-color:#8bc34a!important}
 .xlarge{font-size:24px!important}
 .content,.auto{margin-left:auto;margin-right:auto}.content{max-width:980px}.auto{max-width:1140px}
+
+.right{float:right!important}
+.transparent{background-color:transparent!important}
+.button:hover{color:#000!important;background-color:#ccc!important}
+.green,.hover-green:hover{color:#fff!important;background-color:#4CAF50!important}
+.white,.hover-white:hover{color:#000!important;background-color:#fff!important}
+
+.btn,.button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+.btn,.button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.disabled,.btn:disabled,.button:disabled{cursor:not-allowed;opacity:0.3}.disabled *,:disabled *{pointer-events:none}
+.btn.disabled:hover,.btn:disabled:hover{box-shadow:none}
+.input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+
+.modal{z-index:3;display:none;padding-top:100px;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)}
+.modal-content{margin:auto;background-color:#fff;position:relative;padding:0;outline:0;width:600px}
+.container,.panel{padding:0.01em 16px}.panel{margin-top:16px;margin-bottom:16px}
+.animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+.animate-input{transition:width 0.4s ease-in-out}.animate-input:focus{width:100%!important}
+.left-align{text-align:left!important}
