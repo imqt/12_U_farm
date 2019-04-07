@@ -78,32 +78,46 @@
         let number_of_listings;
         let file;
         let unique;
-
-        var db = firebase.database().ref().child("Listings/UniqueListings")
+        let current = [];
+        var db = firebase.database().ref().child("Listings/UniqueListings");
         db.on(
             "value",
             function(snap){
                 unique = snap.val();
             }
-        )
+        );
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                current.push(displayName);
+                current.push(email);
+            } else {
+                // User is signed out.
+                // ...
+            }
+        });
 
         var photoupload = document.getElementById("photoupload");
         photoupload.addEventListener("change", function(e) {
             file = e.target.files[0];
-        })
+        });
 
         // Update to database
         function updateDatabase() {
-            let key = "Listing" + unique
+            console.log(current[0]);
+            let key = "Listing" + unique;
             let selection = document.getElementById("weight").value;
             firebase.database().ref("Listings/").update({
                 [key]: {
                     Name: document.getElementById("product").value,
+                    Farmer: current[0],
                     Description: document.getElementById("description").value,
                     Quantity: document.getElementById("quantity").value,
                     Weight: selection
                 }
-            })
+            });
             firebase.database().ref("Listings/").update({
                 UniqueListings: unique + 1
             })
