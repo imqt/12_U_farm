@@ -87,7 +87,7 @@
                     <li class="xlarge"><img src="img/1.jpg" id="img2"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro2"> Vegetables </span> <br>
                                             <b>Farmer:</b> <em id="farm2"> Brussels Westbrook</em><br>
-                                            <b>Rating:</b> <em id="farr1"> 99</em></li>
+                                            <b>Rating:</b> <em id="farr2"> 99</em></li>
                 </ul></div>
             
                 <div class="quarter margin-bottom">
@@ -95,14 +95,14 @@
                     <li class="xlarge"><img src="img/1.jpg" id="img3"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro3"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm3"> B. Cucumberbatch</em><br>
-                                            <b>Rating:</b> <em id="farr1"> 93</em></li>
+                                            <b>Rating:</b> <em id="farr3"> 93</em></li>
                 </ul></div>               
                 <div class="quarter margin-bottom">
                 <ul class="ul border card hover-shadow">
                     <li class=" xlarge"><img src="img/2.jpg" id="img4"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro4"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm4"> Dramond Green</em><br>
-                                            <b>Rating:</b> <em id="farr1"> 93</em></li>
+                                            <b>Rating:</b> <em id="farr4"> 93</em></li>
                 </ul></div>
             </div>
             <div class="row-padding">
@@ -212,7 +212,30 @@
         </footer>
     </div>
     <script>
-
+        var db = firebase.database().ref().child("Listings")
+        db.on(
+            "value",
+            function(snap){
+                dict_of_listings = snap.val();
+                all_listings = Object.keys(dict_of_listings);
+                all_produce = Object.values(dict_of_listings);
+                console.log(all_listings);
+                console.log(all_listings)
+                for (let i=1; i<all_listings.length;i++) {
+                    storageRef = firebase.storage().ref();
+                    let ref = 'produce_pics/' + all_listings[i-1] + '/produce.jpg';
+                    console.log(ref);
+                    imagesRef = storageRef.child(ref);
+                    imagesRef.getDownloadURL().then(function(url) {
+                        console.log(i);
+                        let img = "img" + i
+                        console.log(img);
+                        document.getElementById(img).src = url;
+                    })
+                    document.getElementById('pro'+i).innerHTML = all_produce[i-1]['Name']            
+                }
+            }
+        )
     </script>
 
           
