@@ -51,32 +51,32 @@
                     <th>Order Year</th>
                     <th>Order Number
                         <div class="sortarrows">
-                            <div class="uparrow" id="onuarrow" onclick="sortTableAscending(3)"></div>
-                            <div class="downarrow" id="ondarrow" onclick="sortTableDescending(3)"></div>
+                            <div class="uparrow" id="onuarrow" onclick="sortTableAscending(3, id)"></div>
+                            <div class="downarrow" id="ondarrow" onclick="sortTableDescending(3, id)"></div>
                         </div>
                     </th>
                     <th>Produce
                         <div class="sortarrows">
-                            <div class="uparrow" id="puarrow" onclick="sortTableAscending(4)"></div>
-                            <div class="downarrow" id="pdarrow" onclick="sortTableDescending(4)"></div>
+                            <div class="uparrow" id="puarrow" onclick="sortTableAscending(4, id)"></div>
+                            <div class="downarrow" id="pdarrow" onclick="sortTableDescending(4, id)"></div>
                         </div>
                     </th>
                     <th>Quantity
                         <div class="sortarrows">
-                            <div class="uparrow" id="quarrow" onclick="sortTableAscending(5)"></div>
-                            <div class="downarrow" id="qdarrow" onclick="sortTableDescending(5)"></div>
+                            <div class="uparrow" id="quarrow" onclick="sortTableAscending(5, id)"></div>
+                            <div class="downarrow" id="qdarrow" onclick="sortTableDescending(5, id)"></div>
                         </div>
                     </th>
                     <th>Customer Name
                         <div class="sortarrows">
-                            <div class="uparrow" id="cnuarrow" onclick="sortTableAscending(6)"></div>
-                            <div class="downarrow" id="cndarrow" onclick="sortTableDescending(6)"></div>
+                            <div class="uparrow" id="cnuarrow" onclick="sortTableAscending(6, id)"></div>
+                            <div class="downarrow" id="cndarrow" onclick="sortTableDescending(6, id)"></div>
                         </div>
                     </th>
                     <th>Pickup Time
                         <div class="sortarrows">
-                            <div class="uparrow" id="ptuarrow" onclick="sortTableAscending(7)"></div>
-                            <div class="downarrow" id="ptdarrow" onclick="sortTableDescending(7)"></div>
+                            <div class="uparrow" id="ptuarrow" onclick="sortTableAscending(7, id)"></div>
+                            <div class="downarrow" id="ptdarrow" onclick="sortTableDescending(7, id)"></div>
                         </div>
                     </th>
                 </tr>
@@ -269,7 +269,7 @@
                 }
             }
 
-            function sortTableAscending(column) {
+            function sortTableAscending(column, id) {
                 table = document.getElementById("dailyDetails");
                 rows = table.rows;
                 sorting = true;
@@ -285,10 +285,14 @@
                     if (switching == false) {
                         sorting = false;
                     }
-                } 
+                }
+                document.getElementById(current_sort).style.borderTopColor = "lightgray";
+                document.getElementById(current_sort).style.borderBottomColor = "lightgray";
+                document.getElementById(id).style.borderBottomColor = "grey";
+                current_sort = id;
             }
 
-            function sortTableDescending(column) {
+            function sortTableDescending(column, id) {
                 table = document.getElementById("dailyDetails");
                 rows = table.rows;
                 sorting = true;
@@ -304,7 +308,11 @@
                     if (switching == false) {
                         sorting = false;
                     }
-                } 
+                }
+                document.getElementById(current_sort).style.borderBottomColor = "lightgray";
+                document.getElementById(current_sort).style.borderTopColor = "lightgray";
+                document.getElementById(id).style.borderTopColor = "grey";
+                current_sort = id;
             }
 
 
@@ -318,6 +326,8 @@
             let current_day = date.getDay();
             let days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
             let days_in_previous_month = new Date(current_year, current_month, 0).getDate();
+            let current_sort = "ptuarrow";
+            sortTableAscending(7, current_sort);
             createCalendar();
             buildCalendar();
             setMainDate();
