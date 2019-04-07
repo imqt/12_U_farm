@@ -116,7 +116,7 @@ li ul li {
     position: fixed top left;
 }
 
-#dailyDetails tr > *:nth-child(1), #dailyDetails tr > *:nth-child(2), #dailyDetails tr > *:nth-child(3) {
+#dailyDetails tr > *:nth-child(1), #dailyDetails tr > *:nth-child(2), #dailyDetails tr > *:nth-child(3), #dailyDetails tr > *:nth-child(4) {
     display: none;
 }
 /* For Daily Order Table ᐃ*/

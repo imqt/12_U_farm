@@ -93,8 +93,10 @@
                 // User is signed in.
                 var displayName = user.displayName;
                 var email = user.email;
+                var uid = user.uid;
                 current.push(displayName);
                 current.push(email);
+                current.push(uid);
             } else {
                 // User is signed out.
                 // ...
@@ -117,7 +119,8 @@
                     Farmer: current[0],
                     Description: document.getElementById("description").value,
                     Quantity: document.getElementById("quantity").value,
-                    Weight: selection
+                    Weight: selection,
+                    FarmerID: current[2]
                 }
             });
             firebase.database().ref("Listings/").update({
