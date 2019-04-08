@@ -99,6 +99,7 @@
                     <li class="padding-16"><b>Product:</b> <span id="pro1"> Apples </span><br>
                                             <b>Farmer:</b> <em id="farm1"> James Garden</em><br>
                                             <b>Rating:</b> <em id="farr1"> 98</em></li>
+                                            <p style = "display:none" id = "FarmerID1"></p>
                 </ul></a></div>
 
                 <div class="quarter margin-bottom">
@@ -108,6 +109,7 @@
                     <li class="padding-16"><b>Product:</b> <span id="pro2"> Vegetables </span> <br>
                                             <b>Farmer:</b> <em id="farm2"> Brussels Westbrook</em><br>
                                             <b>Rating:</b> <em id="farr2"> 99</em></li>
+                                            <p style = "display:none" id = "FarmerID2"></p>
                 </ul></a></div>
             
                 <div class="quarter margin-bottom">
@@ -117,6 +119,7 @@
                     <li class="padding-16"><b>Product:</b> <span id="pro3"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm3"> B. Cucumberbatch</em><br>
                                             <b>Rating:</b> <em id="farr3"> 93</em></li>
+                                            <p style = "display:none" id = "FarmerID3"></p>
                 </ul></a></div>
 
                 <div class="quarter margin-bottom">
@@ -126,6 +129,7 @@
                     <li class="padding-16"><b>Product:</b> <span id="pro4"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm4"> Dramond Green</em><br>
                                             <b>Rating:</b> <em id="farr4"> 93</em></li>
+                                            <p style = "display:none" id = "FarmerID4"></p>
                 </ul></a></div>
             </div>
             <div class="row-padding">
@@ -251,7 +255,7 @@
                 <b>Product:</b> <span id="pro02"> Vegetables </span><br/>
                 <b>Farmer:</b> <span id="farm02"> Brussels westbrook</span><br/>
                 <b>Rating:</b> <span id="farr02"> 99</span></li>
-                <p id="FarmerID" style="display:none">A12345678</p>
+                <p id="FarmerID" style="display:none"></p>
                 <p><strong>Username</strong><input class="input border" type="text" placeholder="Enter your user Name" id="userName2" required></p>
                 <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity2" required min=1 max=100>
                     <select name="weight" id="weight2" required>
@@ -320,7 +324,7 @@
                 all_listings = Object.keys(dict_of_listings);
                 all_produce = Object.values(dict_of_listings);
                 console.log(all_listings);
-                console.log(all_listings);
+                console.log(all_produce);
                 for (let i=1; i<all_listings.length;i++) {
                     storageRef = firebase.storage().ref();
                     let ref = 'produce_pics/' + all_listings[i-1] + '/produce.jpg';
@@ -334,18 +338,22 @@
                     });
                     document.getElementById('pro'+i).innerHTML = all_produce[i-1]['Name'];
                     document.getElementById('farm'+i).innerHTML = all_produce[i-1]['Farmer'];
+                    document.getElementById('FarmerID'+i).innerHTML = all_produce[i-1]['FarmerID'];
                 }
+            let farmerID = document.getElementById("FarmerID2").innerHTML;
+            document.getElementById("FarmerID").innerHTML = farmerID;
             }
         )
         let unique;
-        var db = firebase.database().ref().child("Orders/UniqueOrders");
-        db.on(
+        var dbs = firebase.database().ref().child("Orders/UniqueOrders");
+        dbs.on(
             "value",
             function(snap){
                 unique = snap.val();
             }
         );
         function updateDatabase() {
+            console.log(document.getElementById('FarmerID').innerHTML)
             let key = "Order" + unique;
             let date = document.getElementById('pickup2').value;
             firebase.database().ref("Orders/").update({
@@ -364,16 +372,6 @@
                 UniqueOrders: unique + 1
             })
         }
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                displayName = user.displayName;
-                var email = user.email;
-            } else {
-                // User is signed out.
-                // ...
-            }
-        });
         document.getElementById('order').onclick = updateDatabase;
 
     </script>
