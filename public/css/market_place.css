@@ -18,7 +18,7 @@ input[type=text]:focus, input[type=text]:hover  {
     width: 90%;
     border: 2px solid #ccc;
 }
-.modal input[type=text] {
+.modal input[type=text] {  /* POP UP WINDOW */
     width: 100%;
     box-sizing: border-box;
     border: 2px solid transparent;
@@ -48,7 +48,7 @@ input[type=text]:focus, input[type=text]:hover  {
 .center{
     text-align:center!important
 }
-
+/* ITEMS */
 .ul{
     list-style-type:none;
     padding:0;
@@ -61,18 +61,19 @@ input[type=text]:focus, input[type=text]:hover  {
 .ul li:last-child{
     border-bottom:none
 }
+.card{
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+}
+.hover-shadow:hover{
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
+}
+
 
 .margin-bottom{
     margin-bottom:16px!important
 }
 .border{
     border:1px solid #ccc!important
-}
-.card{
-    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
-}
-.hover-shadow:hover{
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
 }
 .light-green,.hover-light-green:hover{
     color:#000!important;
@@ -150,60 +151,45 @@ input[type=text]:focus, input[type=text]:hover  {
     outline:0;
     width:600px}
 .container{
-    padding:0.01em 16px
-}
+    padding:0.01em 16px}
 .left-align{
-    text-align:left!important
-}
+    text-align:left!important}
 @media (max-width:600px){
     .modal-content{
         margin:0 10px;
-        width:auto!important
-    }
+        width:auto!important}
     .modal{
-        padding-top:30px
-    }
-}
-@media (max-width:1205px){
-    .auto{
-        max-width:95%
-    }
-}
-.animate-zoom {
-    animation:animatezoom 0.6s
-}
-@keyframes animatezoom{
-    from{
-        transform:scale(0)
-    } 
-    to{
-        transform:scale(1)
-    }
-}
+        padding-top:30px}}
+@media (max-width:1205px){.auto{max-width:95%}}
+.animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{
+                                            from{transform:scale(0)} 
+                                            to{transform:scale(1)}}
 .animate-input{
-    transition:width 0.4s ease-in-out
-}
+    transition:width 0.4s ease-in-out}
 .animate-input:focus{
-    width:100%!important
-}
-
-
-/* FROM w3schools */
-.padding-small{padding:4px 8px!important}
-.padding{padding:8px 16px!important}
-.padding-large{padding:12px 24px!important}
-.padding-16{padding-top:16px!important;padding-bottom:16px!important}
-.padding-24{padding-top:24px!important;padding-bottom:24px!important}
-.padding-32{padding-top:32px!important;padding-bottom:32px!important}
-.padding-48{padding-top:48px!important;padding-bottom:48px!important}
-.padding-64{padding-top:64px!important;padding-bottom:64px!important}
+    width:100%!important}
+.padding{
+    padding:8px 16px!important}
+.padding-large{
+    padding:12px 24px!important}
+.padding-16{
+    padding-top:16px!important;
+    padding-bottom:16px!important}
+.padding-24{
+    padding-top:24px!important;
+    padding-bottom:24px!important}
+.padding-32{
+    padding-top:32px!important;
+    padding-bottom:32px!important}
+.padding-48{
+    padding-top:48px!important;
+    padding-bottom:48px!important}
+.padding-64{
+    padding-top:64px!important;
+    padding-bottom:64px!important}
 .block{display:block;width:100%}
-.responsive{display:block;overflow-x:auto}
 
-.container:after,.container:before,.panel:after,.panel:before,.row:after,.row:before,.row-padding:after,.row-padding:before,
-.cell-row:before,.cell-row:after,.clear:after,.clear:before,.bar:before,.bar:after{content:"";display:table;clear:both}
-.container:after,.container:before,.panel:after,.panel:before,.row:after,.row:before,.row-padding:after,.row-padding:before,
-.cell-row:before,.cell-row:after,.clear:after,.clear:before,.bar:before,.bar:after{content:"";display:table;clear:both}
+/* For the ITEMS in marketplace*/
 .col,.half,.third,.twothird,.threequarter,.quarter{float:left;width:100%}
 .col.s1{width:8.33333%}.col.s2{width:16.66666%}.col.s3{width:24.99999%}.col.s4{width:33.33333%}
 .col.s5{width:41.66666%}.col.s6{width:49.99999%}.col.s7{width:58.33333%}.col.s8{width:66.66666%}
@@ -214,3 +200,4 @@ input[type=text]:focus, input[type=text]:hover  {
 @media (min-width:993px){.col.l1{width:8.33333%}.col.l2{width:16.66666%}.col.l3{width:24.99999%}.col.l4{width:33.33333%}
 .col.l5{width:41.66666%}.col.l6{width:49.99999%}.col.l7{width:58.33333%}.col.l8{width:66.66666%}
 .col.l9{width:74.99999%}.col.l10{width:83.33333%}.col.l11{width:91.66666%}.col.l12{width:99.99999%}}
+/* For the ITEMS in marketplace */
