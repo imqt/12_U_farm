@@ -142,7 +142,7 @@
                         td.style.cursor = "pointer";
                         td.onclick = function() {
                             document.getElementById(selecteddate).style.fontWeight = "normal";
-                            current_date = td.innerHTML;
+                            current_date = parseInt(td.innerHTML);
                             selecteddate = td.id;
                             document.getElementById(td.id).style.fontWeight = "bold";
                             setMainDate();
@@ -273,9 +273,6 @@
                 row = table.getElementsByTagName("tr");
                 for (i = 1; i < row.length; i++) {
                     order = row[i].getElementsByTagName("td");
-                    console.log(order[3].innerHTML)
-                    console.log(current[2])
-                    console.log(order[3].innerHTML == current[2])
                     if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year && order[3].innerHTML == current[2]) {
                         row[i].style.display = "table-row";
                     } 
