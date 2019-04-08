@@ -195,10 +195,18 @@
                 <b>Description: </b><span id="desc01"></span><br/>
                 <b>Farmer: </b> <span id="farm01"> James Garden</span><br/>
                 <b>Rating: </b> <span id="farr01"> 98</span></li>
-                <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
-                
+                <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity1" required min=1 max=100>
+                    <select name="weight" id="weight1" required>
+                        <option value="pounds" selected>Pounds</option>
+                        <option value="ounces">Ounces</option>
+                        <option value="grams">Grams</option>
+                        <option value="kilograms">kilograms</option>
+                    </select></p>
+                <p><strong>Pickup date</strong><input class="input border" type="date" placeholder="" id="pickup1" required></p>
+                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime1"</p>    
+
                 <div class="center">
-                    <button type="button" class="button padding-large green margin-bottom" onclick="document.getElementById('buy1').style.display='none'">Order</button>
+                    <button type="button" class="button padding-large green margin-bottom" onclick="updateDatabase(1)">Order</button>
                 </div>
             </div>
         </div>
@@ -213,7 +221,6 @@
                 <b>Description: </b><span id="desc02"></span><br/>
                 <b>Farmer: </b> <span id="farm02"> Brussels westbrook</span><br/>
                 <b>Rating: </b> <span id="farr02"> 99</span></li>
-                <p id="FarmerID" style="display:none"></p>
                 <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity2" required min=1 max=100>
                     <select name="weight" id="weight2" required>
                         <option value="pounds" selected>Pounds</option>
@@ -222,10 +229,10 @@
                         <option value="kilograms">kilograms</option>
                     </select></p>
                 <p><strong>Pickup date</strong><input class="input border" type="date" placeholder="" id="pickup2" required></p>
-                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime"</p>    
+                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime2"</p>    
 
                 <div class="center">
-                    <button type="button" class="button padding-large green margin-bottom" id='order'>Order</button>
+                    <button type="button" class="button padding-large green margin-bottom" onclick="updateDatabase(2)">Order</button>
                 </div>
             </div>
         </div>
@@ -240,9 +247,18 @@
                 <b>Description: </b><span id="desc03"></span><br/>
                 <b>Farmer: </b> <span id="farm03"> B. Cucumberbatch</span><br/>
                 <b>Rating: </b> <span id="farr03"> 93</span></li>
-                <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
+                <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity3" required min=1 max=100>
+                    <select name="weight" id="weight3" required>
+                        <option value="pounds" selected>Pounds</option>
+                        <option value="ounces">Ounces</option>
+                        <option value="grams">Grams</option>
+                        <option value="kilograms">kilograms</option>
+                    </select></p>
+                <p><strong>Pickup date</strong><input class="input border" type="date" placeholder="" id="pickup3" required></p>
+                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime3"</p>    
+
                 <div class="center">
-                    <button type="button" class="button padding-large green margin-bottom" onclick="document.getElementById('buy3').style.display='none'">Order</button>
+                    <button type="button" class="button padding-large green margin-bottom" onclick="updateDatabase(3)">Order</button>
                 </div>
             </div>
         </div>
@@ -257,9 +273,18 @@
                 <b>Description: </b><span id="desc04"></span><br/>
                 <b>Farmer: </b> <span id="farm04"> Dramond Green</span><br/>
                 <b>Rating: </b> <span id="farr04"> 93</span></li>
-                <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
+                <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity4" required min=1 max=100>
+                    <select name="weight" id="weight4" required>
+                        <option value="pounds" selected>Pounds</option>
+                        <option value="ounces">Ounces</option>
+                        <option value="grams">Grams</option>
+                        <option value="kilograms">kilograms</option>
+                    </select></p>
+                <p><strong>Pickup date</strong><input class="input border" type="date" placeholder="" id="pickup4" required></p>
+                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime4"</p>    
+
                 <div class="center">
-                    <button type="button" class="button padding-large green margin-bottom" onclick="document.getElementById('buy4').style.display='none'">Order</button>
+                    <button type="button" class="button padding-large green margin-bottom" onclick="updateDatabase(4)">Order</button>
                 </div>
             </div>
         </div>
@@ -301,8 +326,6 @@
                     document.getElementById('farm0'+i).innerHTML = all_produce[i-1]['Farmer'];
                     document.getElementById('desc0'+i).innerHTML = all_produce[i-1]['Description']
                 }
-            let farmerID = document.getElementById("FarmerID2").innerHTML;
-            document.getElementById("FarmerID").innerHTML = farmerID;
             }
         )
         let unique;
@@ -313,28 +336,27 @@
                 unique = snap.val();
             }
         );
-        function updateDatabase() {
+        function updateDatabase(number) {
             let key = "Order" + unique;
-            let date = document.getElementById('pickup2').value;
+            let date = document.getElementById('pickup' + number).value;
             firebase.database().ref("Orders/").update({
                 [key]: {
                     CustName: current[0],
-                    Quantity: document.getElementById('quantity2').value + ' ' + document.getElementById('weight2').value,
-                    Produce: document.getElementById('pro02').innerHTML,
+                    Quantity: document.getElementById('quantity' + number).value + ' ' + document.getElementById('weight' + number).value,
+                    Produce: document.getElementById('pro0' + number).innerHTML,
                     Day: date.slice(8, 10),
                     Month: date.slice(5, 7),
                     Year: date.slice(0, 4),
                     UserId: current[2],
-                    FarmerID: document.getElementById('FarmerID').innerHTML,
+                    FarmerID: document.getElementById('FarmerID' + number).innerHTML,
                     Number: unique,
-                    Pickup: document.getElementById('pickuptime').value 
+                    Pickup: document.getElementById('pickuptime' + number).value 
                 }
             });
             firebase.database().ref("Orders/").update({
                 UniqueOrders: unique + 1
             })
         }
-        document.getElementById('order').onclick = updateDatabase;
 
     </script>
 
