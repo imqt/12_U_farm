@@ -191,9 +191,10 @@
                 <i onclick="document.getElementById('buy1').style.display='none'" class="fa fa-remove button xlarge right transparent"></i>
                 <h2 class="wide center">Purchase</h2>
                 <img src="img/2.jpg" id="img01">
-                <b>Product:</b> <span id="pro01"> Apples </span><br/>
-                <b>Farmer:</b> <span id="farm01"> James Garden</span><br/>
-                <b>Rating:</b> <span id="farr01"> 98</span></li>
+                <b>Product: </b> <span id="pro01"> Apples </span><br/>
+                <b>Description: </b><span id="desc01"></span><br/>
+                <b>Farmer: </b> <span id="farm01"> James Garden</span><br/>
+                <b>Rating: </b> <span id="farr01"> 98</span></li>
                 <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
                 
                 <div class="center">
@@ -208,9 +209,10 @@
                 <i onclick="document.getElementById('buy2').style.display='none'" class="fa fa-remove button xlarge right transparent"></i>
                 <h2 class="wide center">Purchase</h2>
                 <img src="img/1.jpg" id="img02">
-                <b>Product:</b> <span id="pro02"> Vegetables </span><br/>
-                <b>Farmer:</b> <span id="farm02"> Brussels westbrook</span><br/>
-                <b>Rating:</b> <span id="farr02"> 99</span></li>
+                <b>Product: </b> <span id="pro02"> Vegetables </span><br/>
+                <b>Description: </b><span id="desc02"></span><br/>
+                <b>Farmer: </b> <span id="farm02"> Brussels westbrook</span><br/>
+                <b>Rating: </b> <span id="farr02"> 99</span></li>
                 <p id="FarmerID" style="display:none"></p>
                 <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity2" required min=1 max=100>
                     <select name="weight" id="weight2" required>
@@ -234,9 +236,10 @@
                 <i onclick="document.getElementById('buy3').style.display='none'" class="fa fa-remove button xlarge right transparent"></i>
                 <h2 class="wide center">Purchase</h2>
                 <img src="img/1.jpg" id="img03">
-                <b>Product:</b> <span id="pro03"> Veggies </span><br/>
-                <b>Farmer:</b> <span id="farm03"> B. Cucumberbatch</span><br/>
-                <b>Rating:</b> <span id="farr03"> 93</span></li>
+                <b>Product: </b> <span id="pro03"> Veggies </span><br/>
+                <b>Description: </b><span id="desc03"></span><br/>
+                <b>Farmer: </b> <span id="farm03"> B. Cucumberbatch</span><br/>
+                <b>Rating: </b> <span id="farr03"> 93</span></li>
                 <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
                 <div class="center">
                     <button type="button" class="button padding-large green margin-bottom" onclick="document.getElementById('buy3').style.display='none'">Order</button>
@@ -250,9 +253,10 @@
                 <i onclick="document.getElementById('buy4').style.display='none'" class="fa fa-remove button xlarge right transparent"></i>
                 <h2 class="wide center">Purchase</h2>
                 <img src="img/2.jpg" id="img04">
-                <b>Product:</b> <span id="pro04"> Green </span><br/>
-                <b>Farmer:</b> <span id="farm04"> Dramond Green</span><br/>
-                <b>Rating:</b> <span id="farr04"> 93</span></li>
+                <b>Product: </b> <span id="pro04"> Green </span><br/>
+                <b>Description: </b><span id="desc04"></span><br/>
+                <b>Farmer: </b> <span id="farm04"> Dramond Green</span><br/>
+                <b>Rating: </b> <span id="farr04"> 93</span></li>
                 <p><input class="input border" style="align-self: auto;" type="text" placeholder="Enter info"></p>
                 <div class="center">
                     <button type="button" class="button padding-large green margin-bottom" onclick="document.getElementById('buy4').style.display='none'">Order</button>
@@ -295,6 +299,7 @@
                     document.getElementById('FarmerID'+i).innerHTML = all_produce[i-1]['FarmerID'];
                     document.getElementById('pro0'+i).innerHTML = all_produce[i-1]['Name'];
                     document.getElementById('farm0'+i).innerHTML = all_produce[i-1]['Farmer'];
+                    document.getElementById('desc0'+i).innerHTML = all_produce[i-1]['Description']
                 }
             let farmerID = document.getElementById("FarmerID2").innerHTML;
             document.getElementById("FarmerID").innerHTML = farmerID;
