@@ -5,6 +5,7 @@ let dict_of_months = {0: "January", 1: "February", 2: "March", 3: "April",
 
 // Define global variables that are used in multiple functions.
 let selecteddate;
+// Grab current date
 let date = new Date();
 let current_month = date.getMonth();
 let current_date = date.getDate();
@@ -12,36 +13,8 @@ let current_year = date.getFullYear();
 let current_day = date.getDay();
 let days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
 let days_in_previous_month = new Date(current_year, current_month, 0).getDate();
+// Sort table by pick up time when page is initially loaded.
 let current_sort = "ptuarrow";
-
-// Create each calendar day dynamically
-function createCalendar() {
-    let week = 1;
-    let day = 1;
-    for (i = 0; i <= 5; i++) {
-        let tr = document.createElement("tr");
-        tr.id = "week" + week;
-        document.getElementById("calendartable").appendChild(tr);
-        for (j = 0; j <= 6; j++) {
-            let td = document.createElement("td");
-            td.id = "day" + day;
-            document.getElementById("week" + week).appendChild(td);
-            td.style.cursor = "pointer";
-            // Define actions when each individual date is clicked.
-            td.onclick = function() {
-                document.getElementById(selecteddate).style.fontWeight = "normal";
-                current_date = parseInt(td.innerHTML);
-                selecteddate = td.id;
-                document.getElementById(td.id).style.fontWeight = "bold";
-                setMainDate();
-                setCalendarDate();
-                filterTable();
-            }
-            day++;
-        }
-        week++;
-    }
-}
 
 // Dynamically generate order table based on number of orders created.
 function buildOrderTable() {
@@ -49,11 +22,12 @@ function buildOrderTable() {
     db.on(
         "value",
         function(snap){
+            // Grab all orders from the database and split them into keys and values
             dict_of_orders = snap.val();
             all_orders = Object.keys(dict_of_orders);
             all_details = Object.values(dict_of_orders);
+            // Create a new row for each order
             for (let i=0; i<all_orders.length-1;i++) {
-                // Create a new row for each order
                 let tr = document.createElement("tr");
                 tr.id = all_orders[i];
                 document.getElementById('dailyDetails').appendChild(tr);
@@ -78,6 +52,35 @@ function buildOrderTable() {
             filterTable();
         }
     )
+}
+
+// Create each calendar day dynamically
+function createCalendar() {
+    let week = 1;
+    let day = 1;
+    for (i = 0; i <= 5; i++) {
+        let tr = document.createElement("tr");
+        tr.id = "week" + week;
+        document.getElementById("calendartable").appendChild(tr);
+        for (j = 0; j <= 6; j++) {
+            let td = document.createElement("td");
+            td.id = "day" + day;
+            tr.appendChild(td);
+            td.style.cursor = "pointer";
+            // Define actions when each individual date is clicked.
+            td.onclick = function() {
+                document.getElementById(selecteddate).style.fontWeight = "normal";
+                current_date = parseInt(td.innerHTML);
+                selecteddate = td.id;
+                document.getElementById(selecteddate).style.fontWeight = "bold";
+                setMainDate();
+                setCalendarDate();
+                filterTable();
+            }
+            day++;
+        }
+        week++;
+    }
 }
 
 // Fill each calendar day with a value.
@@ -117,7 +120,6 @@ function buildCalendar() {
     else {
         document.getElementById("week6").style.display = "table-row";
     }
-
 }
 
 // Recreate the calendar when the user clicks back one month.
@@ -235,6 +237,7 @@ function sortTableDescending(column, id) {
     current_sort = id;
 }
 
+// Invoke functions to create calendar and table when page is loaded.
 buildOrderTable();
 sortTableAscending(7, current_sort);
 createCalendar();
