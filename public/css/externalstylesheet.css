@@ -7,46 +7,33 @@ html{
     font-family:Verdana,sans-serif;
     font-size:15px;
     line-height:1.5;
-    overflow-x:hidden
-}
+    overflow-x:hidden}
 body{
     margin:0;
     font-family:Verdana,sans-serif;
     font-size:15px;
-    line-height:1.5
-}
-
+    line-height:1.5}
 section{display:block}
 footer{display:block;}
 a {
     background-color:transparent;
     -webkit-text-decoration-skip:objects;
-    color: inherit;
-}
-
+    color: inherit;}
 a:active, a:hover {
-    outline-width:0
-}
-
+    outline-width:0}
 img{
     border-style:none;
-    vertical-align:middle;
-}
+    vertical-align:middle;}
 .image{max-width:100%;height:auto}
 button {
     font:inherit;
     margin: 0;
     overflow:visible;
-    text-transform:none;
-
-}
+    text-transform:none;}
 input{
     font:inherit;
     margin:0;
-    overflow:visible
-}
-
-
+    overflow:visible}
 h1{font-size:36px}
 h2{font-size:30px}
 h3{font-size:24px}
@@ -75,19 +62,13 @@ h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:400;margin:10px 0}
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
 }
-   
 .button:hover{
     color:#000!important;
     background-color:lightgreen!important;
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
-
-
-
-
 .tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
 .ul{list-style-type:none;padding:0;margin:0; height: 355px}
 .ul li{padding:8px 16px;border-bottom:1px solid #ddd}
@@ -95,7 +76,7 @@ h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:400;margin:10px 0}
 .display-container{position:relative}
 .input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
 
-.main{transition:margin-left .4s}
+.main{transition:margin-left 0.4s}
 
 
 .block{display:block;width:100%}
