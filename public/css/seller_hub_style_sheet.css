@@ -82,7 +82,7 @@ li ul li {
     border-spacing: 0px;
 }
 
-.orderTable th, td {
+.orderTable th, td {    
     text-align: center;
     padding: 1.5px;
 }
