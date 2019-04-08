@@ -212,7 +212,6 @@
                 <b>Farmer:</b> <span id="farm02"> Brussels westbrook</span><br/>
                 <b>Rating:</b> <span id="farr02"> 99</span></li>
                 <p id="FarmerID" style="display:none"></p>
-                <p><strong>Username</strong><input class="input border" type="text" placeholder="Enter your user Name" id="userName2" required></p>
                 <p><strong>Quantity</strong><input class="input border" type="number" placeholder="Enter quantity" id="quantity2" required min=1 max=100>
                     <select name="weight" id="weight2" required>
                         <option value="pounds" selected>Pounds</option>
@@ -288,14 +287,14 @@
                     console.log(ref);
                     imagesRef = storageRef.child(ref);
                     imagesRef.getDownloadURL().then(function(url) {
-                        console.log(i);
-                        let img = "img" + i;
-                        console.log(img);
-                        document.getElementById(img).src = url;
+                        document.getElementById("img" + i).src = url;
+                        document.getElementById("img0" + i).src = url;
                     });
                     document.getElementById('pro'+i).innerHTML = all_produce[i-1]['Name'];
                     document.getElementById('farm'+i).innerHTML = all_produce[i-1]['Farmer'];
                     document.getElementById('FarmerID'+i).innerHTML = all_produce[i-1]['FarmerID'];
+                    document.getElementById('pro0'+i).innerHTML = all_produce[i-1]['Name'];
+                    document.getElementById('farm0'+i).innerHTML = all_produce[i-1]['Farmer'];
                 }
             let farmerID = document.getElementById("FarmerID2").innerHTML;
             document.getElementById("FarmerID").innerHTML = farmerID;
