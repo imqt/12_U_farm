@@ -55,9 +55,13 @@ input[type=number] {
 
 .sidenav a:hover {  /* hover effect for links in the navigation bar */
     background: rgb(71, 168, 74);
-    color: white;
+    color: green;
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
+}
+
+#newlisting {
+    font-weight: bold;
 }
 
 ul {

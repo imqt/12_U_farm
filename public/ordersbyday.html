@@ -2,12 +2,16 @@
 <html>
 <head>
     <title>U-Farm List Of Orders</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/main_style_sheet.css"/>
     <link rel="stylesheet" href="css/externalstylesheet.css">
     <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src =js/setup_firebase.js></script>
     <script>
+        // Grab user's name, email, and user id if they are logged in.
         let current = [];
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -18,9 +22,6 @@
                 current.push(displayName);
                 current.push(email);
                 current.push(uid);
-            } else {
-                // User is signed out.
-                // ...
             }
         });
     </script>
@@ -30,7 +31,7 @@
 </head>
 <body>
 
-    <!-- Links (sit on top) -->
+    <!-- These links are part of the top navigation bar.-->
     <div class="top" style="position:absolute">
         <div class="row large light-grey">
             <div class="col s3" id="home"><a href="index.html" class="button block">Home</a></div>
@@ -40,6 +41,7 @@
         </div>
     </div>
     
+    <!-- The div below generates the links for the side navigation bar. -->
     <div class="sidenav">
         <ul>
             <li><a class="sideNavHeaders" href="SellerHub.html">Overview</a></li>
@@ -47,7 +49,7 @@
             <li><a class="sideNavHeaders" href="#orders">Orders</a>
                 <ul>
                     <li><a class="sideNavSubHeaders" id="allorders" href="orders.html">All Orders</a></li>
-                    <li><a class="sideNavSubHeaders" id="dailyorders" href="ordersbyday.html">Daily Details</a></li>
+                    <li><a class="sideNavSubHeaders" id="dailyorders" href="ordersbyday.html" style="font-weight: bold">Daily Details</a></li>
                 </ul>
             </li>
             <li><a class="sideNavHeaders" href="#ratings">Ratings</a></li>
@@ -55,17 +57,22 @@
         </ul>
     </div>
 
+    
     <div class="main">
         <h1>Daily Details - <span id="titledate"></span></h1>
         
+        <!-- Generate the order table -->
         <div id="dailyOrderTable">
             <table class="orderTable" id="dailyDetails">
+
+                <!-- Create table headers -->
                 <tr>
                     <th>Order Month</th>
                     <th>Order Day</th>
                     <th>Order Year</th>
                     <th>Farmer ID</th>
                     <th>Order Number
+                        <!-- Certain table headers have an up and down arrow for sorting -->
                         <div class="sortarrows">
                             <div class="uparrow" id="onuarrow" onclick="sortTableAscending(3, id)"></div>
                             <div class="downarrow" id="ondarrow" onclick="sortTableDescending(3, id)"></div>
@@ -91,7 +98,7 @@
                     </th>
                     <th>Pickup Time
                         <div class="sortarrows">
-                            <div class="uparrow" id="ptuarrow" onclick="sortTableAscending(7, id)"></div>
+                            <div class="uparrow" id="ptuarrow" onclick="sortTableAscending(7, id)" style="border-bottom-color: grey"></div>
                             <div class="downarrow" id="ptdarrow" onclick="sortTableDescending(7, id)"></div>
                         </div>
                     </th>
@@ -99,15 +106,16 @@
             </table> 
         </div>
 
+        <!-- Generate the top 2 rows of the calendar -->
         <div id="calendardiv">   
             <table id="calendartable">
                 <tr id="calendarmonth">
                     <th id="month" colspan="7">
-                        <div id="leftarrow"></div>
+                        <div id="leftarrow" onclick="leftarrowclick()"></div>
                         <span id="selectedmonth"></span>
                         <span> </span>
                         <span id="selectedyear"></span>
-                        <div id="rightarrow"></div>
+                        <div id="rightarrow" onclick="rightarrowclick()"></div>
                     </th>
                 </tr>
                 <tr id="calendarday">
@@ -122,233 +130,7 @@
             </table>
         </div>
     </div>
-        <script>
-            let dict_of_months = {0: "January", 1: "February", 2: "March", 3: "April",
-                                  4: "May", 5: "June", 6: "July", 7: "August", 8: "September",
-                                  9: "October", 10: "November", 11: "December"};
-            
-            let selecteddate;
-            function createCalendar() {
-                let week = 1;
-                let day = 1;
-                for (i = 0; i <= 5; i++) {
-                    let tr = document.createElement("tr");
-                    tr.id = "week" + week;
-                    document.getElementById("calendartable").appendChild(tr);
-                    for (j = 0; j <= 6; j++) {
-                        let td = document.createElement("td");
-                        td.id = "day" + day;
-                        document.getElementById("week" + week).appendChild(td);
-                        td.style.cursor = "pointer";
-                        td.onclick = function() {
-                            document.getElementById(selecteddate).style.fontWeight = "normal";
-                            current_date = parseInt(td.innerHTML);
-                            selecteddate = td.id;
-                            document.getElementById(td.id).style.fontWeight = "bold";
-                            setMainDate();
-                            setCalendarDate();
-                            filterTable();
-                        }
-                        day++;
-                    }
-                    week++;
-                }
-            }
-
-            function buildOrderTable() {
-                var db = firebase.database().ref().child("Orders")
-                db.on(
-                    "value",
-                    function(snap){
-                        dict_of_orders = snap.val();
-                        all_orders = Object.keys(dict_of_orders);
-                        all_details = Object.values(dict_of_orders);
-                        for (let i=0; i<all_orders.length-1;i++) {
-                            let tr = document.createElement("tr");
-                            tr.id = all_orders[i];
-                            document.getElementById('dailyDetails').appendChild(tr);
-                            let details = all_details[i];
-                            let month = details['Month'] - 1;
-                            let full_order = []
-                            full_order.push(month);
-                            full_order.push(details['Day']);
-                            full_order.push(details['Year']);
-                            full_order.push(details['FarmerID']);
-                            full_order.push(details['Number']);
-                            full_order.push(details['Produce']);
-                            full_order.push(details['Quantity']);
-                            full_order.push(details['CustName']);
-                            full_order.push(details['Pickup']);
-                            for (let j=0; j<full_order.length; j++) {
-                                let td = document.createElement("td");
-                                tr.appendChild(td);
-                                td.innerHTML = full_order[j];
-                            }          
-                        }
-                        filterTable();
-                    }
-                )
-            }
-
-
-            function buildCalendar() {
-                let earliestdate = current_date%7;
-                let earliestday = 8 - earliestdate + current_day;
-                let firstday = 1;
-                if (earliestday > 6) {
-                    earliestday -= 7;
-                }
-                for (i = 1; i <= days_in_current_month; i++) {
-                    document.getElementById("day" + (i + earliestday)).innerHTML = i;
-                    document.getElementById("day" + (i + earliestday)).style.color = "black";
-                    if (i == current_date) {
-                        document.getElementById("day" + (i + earliestday)).style.fontWeight = "bold";
-                        selecteddate = document.getElementById("day" + (i + earliestday)).id;
-                    }
-                }
-                for (i = 0; i < earliestday; i++) {
-                    document.getElementById("day" + (earliestday - i)).innerHTML = days_in_previous_month - i;
-                    document.getElementById("day" + (earliestday - i)).style.color = "lightgray";
-                }
-                for (i = days_in_current_month + 1; i + earliestday <= 42; i++) {
-                    document.getElementById("day" + (i + earliestday)).innerHTML = firstday;
-                    document.getElementById("day" + (i + earliestday)).style.color = "lightgray";
-                    firstday++;
-                }
-                if (document.getElementById("day36").style.color == "lightgray") {
-                    document.getElementById("week6").style.display = "none";
-                }
-                else {
-                    document.getElementById("week6").style.display = "table-row";
-                }
-
-            }
-
-            function leftarrowclick () {
-                if (current_month > 0) {
-                    current_month -= 1;
-                }
-                else {
-                    current_month = 11;
-                    current_year -= 1;
-                }
-                document.getElementById(selecteddate).style.fontWeight = "normal";
-                current_date = 1;
-                date = new Date(current_year, current_month, current_date);
-                current_day = date.getDay();
-                days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
-                days_in_previous_month = new Date(current_year, current_month, 0).getDate();
-                buildCalendar();
-                setCalendarDate();
-            }
-
-            function rightarrowclick () {
-                if (current_month < 11) {
-                    current_month += 1;
-                }
-                else {
-                    current_month = 0;
-                    current_year += 1;
-                }
-                document.getElementById(selecteddate).style.fontWeight = "normal";
-                current_date = 1;
-                date = new Date(current_year, current_month, current_date);
-                current_day = date.getDay();
-                days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
-                days_in_previous_month = new Date(current_year, current_month, 0).getDate();
-                buildCalendar();
-                setCalendarDate();
-            }
-            
-            function setMainDate () {
-                document.getElementById("titledate").innerHTML = dict_of_months[current_month] + " " + current_date.toString() + " " + current_year.toString();
-            }
-            function setCalendarDate () {
-                document.getElementById("selectedmonth").innerHTML = dict_of_months[current_month];
-                document.getElementById("selectedyear").innerHTML = current_year;
-            }
-
-            function filterTable() {
-                table = document.getElementById("dailyDetails");
-                row = table.getElementsByTagName("tr");
-                for (i = 1; i < row.length; i++) {
-                    order = row[i].getElementsByTagName("td");
-                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year && order[3].innerHTML == current[2]) {
-                        row[i].style.display = "table-row";
-                    } 
-                    else {
-                        row[i].style.display = "none";
-                    }
-                }
-            }
-
-            function sortTableAscending(column, id) {
-                table = document.getElementById("dailyDetails");
-                rows = table.rows;
-                sorting = true;
-                while (sorting) {
-                    switching = false;
-                    for (i = 1; i < rows.length - 1; i++) {
-                        if (rows[i].getElementsByTagName("td")[column].innerHTML > rows[i+1].getElementsByTagName("td")[column].innerHTML) {
-                            switching = true;
-                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                            break;
-                        }
-                    }
-                    if (switching == false) {
-                        sorting = false;
-                    }
-                }
-                document.getElementById(current_sort).style.borderTopColor = "lightgray";
-                document.getElementById(current_sort).style.borderBottomColor = "lightgray";
-                document.getElementById(id).style.borderBottomColor = "grey";
-                current_sort = id;
-            }
-
-            function sortTableDescending(column, id) {
-                table = document.getElementById("dailyDetails");
-                rows = table.rows;
-                sorting = true;
-                while (sorting) {
-                    switching = false;
-                    for (i = 1; i < rows.length - 1; i++) {
-                        if (rows[i].getElementsByTagName("td")[column].innerHTML < rows[i+1].getElementsByTagName("td")[column].innerHTML) {
-                            switching = true;
-                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                            break;
-                        }
-                    }
-                    if (switching == false) {
-                        sorting = false;
-                    }
-                }
-                document.getElementById(current_sort).style.borderBottomColor = "lightgray";
-                document.getElementById(current_sort).style.borderTopColor = "lightgray";
-                document.getElementById(id).style.borderTopColor = "grey";
-                current_sort = id;
-            }
-
-            document.getElementById("dailyorders").style.fontWeight = "bold";
-            document.getElementById("ptuarrow").style.borderBottomColor = "grey";
-            let date = new Date();
-            let current_month = date.getMonth();
-            let current_date = date.getDate();
-            let current_year = date.getFullYear();
-            let current_day = date.getDay();
-            let days_in_current_month = new Date(current_year, current_month + 1, 0).getDate();
-            let days_in_previous_month = new Date(current_year, current_month, 0).getDate();
-            let current_sort = "ptuarrow";
-            buildOrderTable();
-            sortTableAscending(7, current_sort);
-            createCalendar();
-            buildCalendar();
-            setMainDate();
-            setCalendarDate();
-
-            document.getElementById("leftarrow").onclick = leftarrowclick;
-            document.getElementById("rightarrow").onclick = rightarrowclick;
-
-        </script>
+        <script src="js/ordersbyday.js"></script>
     </form>
 </body>
 </html>
