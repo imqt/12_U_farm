@@ -2,15 +2,17 @@
 <html>
 <head>
     <title>U-Farm My Hub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/externalstylesheet.css">
     <link rel="stylesheet" type="text/css" type="text/css" href="css/main_style_sheet.css"/>
     <link rel="stylesheet" type="text/css" type="text/css" href="css/seller_hub_style_sheet.css"/>
-    <style>
-        html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!--Font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--some buttons-->
 </head>
 <body>
-    <!-- Links (sit on top) -->
+    <!-- These links are part of the top navigation bar.-->
     <div class="top" style="position:absolute">
         <div class="row large light-grey">
             <div class="col s3" id="home"><a href="index.html" class="button block">Home</a></div>
@@ -20,22 +22,16 @@
         </div>
     </div>
     
+    <!-- The div below generates the links for the side navigation bar. -->
     <div class="sidenav">
-        <!-- <input type="checkbox" name="" value=""><br> -->
         <ul>
-            <li><a class="sideNavHeaders" href="#overview">Overview</a></li>
-            <li><a class="sideNavHeaders" href="#mylistings">My Listings</a>
-                <ul>
-                    <li><a class="sideNavSubHeaders" id = "newlisting" href="createnewlisting.html">Create New Listing</a></li>
-                    <li><a class="sideNavSubHeaders" href="#currentlistings">View Current Listings</a></li>
-                </ul>
-            </li>
+            <li style="font-weight:bold;"><a class="sideNavHeaders" href="#overview">Overview</a></li>
+            <li><a class="sideNavHeaders" href="createnewlisting.html">My Listings</a></li>
             <li><a class="sideNavHeaders" href="orders.html">Orders</a></li>
             <li><a class="sideNavHeaders" href="#ratings">Ratings</a></li>
             <li><a class="sideNavHeaders" href="#performance">Performance</a></li>
         </ul>
-    <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_checked -->
-    <!-- Check box and form tutorial -->
+
         
     </div>
     <div class="bottombar">
@@ -46,6 +42,7 @@
         <h1>This is the Seller Hub</h1>
         
     </div>
+
 
 </body>
 </html>

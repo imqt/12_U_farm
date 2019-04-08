@@ -2,18 +2,20 @@
 <html>
 <head>
     <title>U-Farm My Hub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/main_style_sheet.css"/>
     <link rel="stylesheet" type="text/css" href="css/externalstylesheet.css">
     <link rel="stylesheet" type="text/css" href="css/seller_hub_style_sheet.css"/>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!--Font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--some buttons-->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="js/setup_firebase.js"></script>
-    <style>
-        html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-    </style>
 </head>
 <body>
-    <!-- Links (sit on top) -->
+
+    <!-- These links are part of the top navigation bar.-->
     <div class="top" style="position:absolute">
         <div class="row large light-grey">
             <div class="col s3" id="home"><a href="index.html" class="button block">Home</a></div>
@@ -22,8 +24,9 @@
             <div class="col s3" id="farmer"><a href="SellerHub.html" class="button block">Farmers</a></div>
         </div>
     </div>
-    <div class="sidenav">
-        <!-- <input type="checkbox" name="" value=""><br> -->
+
+    <!-- The div below generates the links for the side navigation bar. -->
+    <div class="sidenav"> 
         <ul>
             <li><a class="sideNavHeaders" href="SellerHub.html">Overview</a></li>
             <li><a class="sideNavHeaders" href="#mylistings">My Listings</a>
@@ -39,26 +42,29 @@
         
     </div>
 
-
+    <!-- The div below generates a form on the page where users can create a new listing for their produce. -->
     <div class="main">
         <h1>Create New Listing</h1>
         <p>Please complete the following form to create a new listing</p>
         <hr>
 
+        <!-- Generate a field to enter product name. -->
         <div class="product">
             <p><strong>Product</strong>
             <input type="text" placeholder="Enter Product Name" id="product" required></p>
         </div>
 
+        <!-- Generate a large text area to enter product's description -->
         <div class="description">
             <p><strong>Description</strong>
             <textarea placeholder="Description of Product" id="description" rows="10" cols="40"></textarea></p>
         </div>
 
+        <!-- Generate a field to enter a number and a drop down menu for weight selection(pounds, ounces, grams, kilograms). -->
         <div class="quantity">
             <p><strong>Quantity</strong></p>
             <input type="number" placeholder="0" id="quantity">
-            <select name="weight" id="weight">
+            <select name="weight" id="weight"> 
                 <option value="pounds" selected>Pounds</option>
                 <option value="ounces">Ounces</option>
                 <option value="grams">Grams</option>
@@ -66,79 +72,18 @@
             </select>
         </div>
 
+        <!-- Generate a button for the user to upload a photo. -->
         <div class="photo">
             <label for="photo"><strong>Photos of Product</strong></label>
             <input type="file" value="upload" id="photoupload">
         </div>
 
+        <!-- Generate a button to create a new listing -->
         <div>
-            <button id ="submit" class="newlistingbutton">Post New Listing</button>
+            <button id ="submit" class="newlistingbutton" onclick="updateDatabase()">Post New Listing</button>
         </div>
     </div>
-
-
-    <script>
-        let number_of_listings;
-        let file;
-        let current = [];
-
-        let unique;
-        var db = firebase.database().ref().child("Listings/UniqueListings");
-        db.on(
-            "value",
-            function(snap){
-                unique = snap.val();
-            }
-        );
-        
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                var displayName = user.displayName;
-                var email = user.email;
-                var uid = user.uid;
-                current.push(displayName);
-                current.push(email);
-                current.push(uid);
-            } else {
-                // User is signed out.
-                // ...
-            }
-        });
-
-        var photoupload = document.getElementById("photoupload");
-        photoupload.addEventListener("change", function(e) {
-            file = e.target.files[0];
-        });
-
-        // Update to database
-        function updateDatabase() {
-            console.log(current[0]);
-            let key = "Listing" + unique;
-            let selection = document.getElementById("weight").value;
-            firebase.database().ref("Listings/").update({
-                [key]: {
-                    Name: document.getElementById("product").value,
-                    Farmer: current[0],
-                    Description: document.getElementById("description").value,
-                    Quantity: document.getElementById("quantity").value,
-                    Weight: selection,
-                    FarmerID: current[2]
-                }
-            });
-            firebase.database().ref("Listings/").update({
-                UniqueListings: unique + 1
-            })
-            var storageRef = firebase.storage().ref("produce_pics/" + key + "/produce.jpg");
-            storageRef.put(file);
-            document.getElementById("submit").innerHTML = "Listing Created!";
-            document.getElementById("submit").disabled = "true";
-            document.getElementById("submit").style.opacity = "1";
-        }
-        document.getElementById("submit").onclick = updateDatabase;
-        document.getElementById("newlisting").style.fontWeight = "bold";
-    </script>
-
+    <script src="js/create_new_listing.js"></script>
 </body>
 </html>
 
