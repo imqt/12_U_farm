@@ -11,13 +11,10 @@
     <title>U-Farm Marketplace</title>
     <style>
     html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-    .mySlides {display:none}
     .tag, .fa {cursor:pointer}
     .tag {height:15px;width:15px;padding:0;margin-top:6px}
     .product {max-width: 100%;}
-    img{
-        max-width: 100%;
-    }
+    img{max-width: 100%;}
     </style>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src =js/setup_firebase.js></script>
@@ -42,13 +39,14 @@
 
 <body>
     <!-- Links (sit on top) -->
-    <div class="top" style="position:absolute">
-        <div class="row large">
-          <div class="col s4"><a href="#" class="button block">About</a></div>
-          <div class="col s4"><a href="#" class="button block">Marketplace</a></div>
-          <div class="col s4"><a href="#" class="button block">Farmers</a></div>
+    <div class="top" style="position: absolute;">
+        <div class="row large light-grey">
+            <div class="col s3" id="home"><a href="index.html" class="button block">Home</a></div>
+            <div class="col s3" id="about"><a href="about.html" class="button block">About</a></div>
+            <div class="col s3" id="marketplace"><a href="marketplace.html" class="button block">Marketplace</a></div>
+            <div class="col s3" id="farmer"><a href="SellerHub.html" class="button block">Farmers</a></div>
         </div>
-      </div>
+    </div>
     
     <div class="sidenav">
         <form>
@@ -98,8 +96,9 @@
                     <li class="xlarge"><img src="img/2.jpg" id="img1"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro1"> Apples </span><br>
                                             <b>Farmer:</b> <em id="farm1"> James Garden</em><br>
-                                            <b>Rating:</b> <em id="farr1"> 98</em></li>
-                                            <p style = "display:none" id = "FarmerID1"></p>
+                                            <b>Rating:</b> <em id="farr1"> 98</em>
+                                            <p style = "display:none" id = "FarmerID1"></p></li>
+                                            
                 </ul></a></div>
 
                 <div class="quarter margin-bottom">
@@ -108,8 +107,9 @@
                     <li class="xlarge"><img src="img/1.jpg" id="img2"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro2"> Vegetables </span> <br>
                                             <b>Farmer:</b> <em id="farm2"> Brussels Westbrook</em><br>
-                                            <b>Rating:</b> <em id="farr2"> 99</em></li>
-                                            <p style = "display:none" id = "FarmerID2"></p>
+                                            <b>Rating:</b> <em id="farr2"> 99</em>
+                                            <p style = "display:none" id = "FarmerID2"></p></li>
+                                            
                 </ul></a></div>
             
                 <div class="quarter margin-bottom">
@@ -118,8 +118,9 @@
                     <li class="xlarge"><img src="img/1.jpg" id="img3"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro3"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm3"> B. Cucumberbatch</em><br>
-                                            <b>Rating:</b> <em id="farr3"> 93</em></li>
-                                            <p style = "display:none" id = "FarmerID3"></p>
+                                            <b>Rating:</b> <em id="farr3"> 93</em>
+                                            <p style = "display:none" id = "FarmerID3"></p></li>
+                                            
                 </ul></a></div>
 
                 <div class="quarter margin-bottom">
@@ -128,101 +129,63 @@
                     <li class=" xlarge"><img src="img/2.jpg" id="img4"></li>
                     <li class="padding-16"><b>Product:</b> <span id="pro4"> Apples </span> <br>
                                             <b>Farmer:</b> <em id="farm4"> Dramond Green</em><br>
-                                            <b>Rating:</b> <em id="farr4"> 93</em></li>
-                                            <p style = "display:none" id = "FarmerID4"></p>
+                                            <b>Rating:</b> <em id="farr4"> 93</em>
+                                            <p style = "display:none" id = "FarmerID4"></p></li>
+                                            
                 </ul></a></div>
             </div>
             <div class="row-padding">
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge"><img src="img/1.jpg"></li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
                     <li class="xlarge"><img src="img/3.jpg"></li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
                 </ul></div>
-            
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/4.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/6.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>               
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class=" xlarge"><img src="img/2.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+            </div>
+            <div class="row-padding">
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/6.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
                     <li class="xlarge"><img src="img/2.jpg"></li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/5.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
                 </ul></div>               
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class=" xlarge"><img src="img/9.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+            </div>
+            <div class="row-padding">
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/1.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/3.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
+                    <li class="xlarge"><img src="img/2.jpg"></li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
+                </ul></div>               
+                <div class="quarter margin-bottom"><ul class="ul border card hover-shadow">
                     <li class=" xlarge"><img src="img/3.jpg"></li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-            </div>
-            <div class="row-padding">
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-            
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>               
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class=" xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-            </div>
-            <div class="row-padding">
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>
-            
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class="xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
-                </ul></div>               
-                <div class="quarter margin-bottom">
-                <ul class="ul border card hover-shadow">
-                    <li class=" xlarge">img</li>
-                    <li class="padding-16"><b>Product:</b> Apples <br>
-                                            <b>Farmer:</b> Worm <br>
-                                            <b>Rating:</b> Sweettttt </li>
+                    <li class="padding-16"><b>Product:</b> Apples <br><b>Farmer:</b> Worm <br><b>Rating:</b> Sweettttt </li>
                 </ul></div>
             </div>
             <div class="center"><a href="" class="center"> See more</a></div>
@@ -354,7 +317,6 @@
             }
         );
         function updateDatabase() {
-            console.log(document.getElementById('FarmerID').innerHTML)
             let key = "Order" + unique;
             let date = document.getElementById('pickup2').value;
             firebase.database().ref("Orders/").update({

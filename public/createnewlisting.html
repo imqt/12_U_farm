@@ -8,17 +8,20 @@
     
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="js/setup_firebase.js"></script>
+    <style>
+        html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+    </style>
 </head>
 <body>
     <!-- Links (sit on top) -->
-    <div class="top" style="position: absolute;">
-            <div class="row large light-grey">
-                <div class="col s4"><a href="#" class="button block">About</a></div>
-                <div class="col s4"><a href="#plans" class="button block">Marketplace</a></div>
-                <div class="col s4"><a href="#about" class="button block">Farmers</a></div>
-            </div>
+    <div class="top" style="position:absolute">
+        <div class="row large light-grey">
+            <div class="col s3" id="home"><a href="index.html" class="button block">Home</a></div>
+            <div class="col s3" id="about"><a href="about.html" class="button block">About</a></div>
+            <div class="col s3" id="marketplace"><a href="marketplace.html" class="button block">Marketplace</a></div>
+            <div class="col s3" id="farmer"><a href="SellerHub.html" class="button block">Farmers</a></div>
         </div>
-    
+    </div>
     <div class="sidenav">
         <!-- <input type="checkbox" name="" value=""><br> -->
         <ul>
