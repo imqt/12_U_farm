@@ -69,19 +69,28 @@ h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:400;margin:10px 0}
     transition-duration: 0.6s; /*Smooth effect*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
-.ul{list-style-type:none;padding:0;margin:0; height: 355px}
-.ul li{padding:8px 16px;border-bottom:1px solid #ddd}
+.tag{
+    background-color:#000;color:#fff;
+    display:inline-block;padding-left:8px;
+    padding-right:8px;text-align:center}
+.ul{list-style-type:none;
+    padding:0;margin:0;
+    height: 355px}
+.ul li{padding:8px 16px;
+    border-bottom:1px solid #ddd}
 .ul li:last-child{border-bottom:none}
 .display-container{position:relative}
-.input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+.input{padding:8px;
+    display:block;
+    border:none;
+    border-bottom:1px solid #ccc;
+    width:100%}
 
 .main{transition:margin-left 0.4s}
 
 
 .block{display:block;width:100%}
-.container:after,.container:before,.panel:after,.panel:before,.row:after,.row:before,.row-padding:after,.row-padding:before,
-.cell-row:before,.cell-row:after,.clear:after,.clear:before,.bar:before,.bar:after{content:"";display:table;clear:both}
+
 .col,.half,.third,.twothird,.threequarter,.quarter{float:left;width:100%}
 .col.s1{width:8.33333%}.col.s2{width:16.66666%}.col.s3{width:24.99999%}.col.s4{width:33.33333%}
 .col.s5{width:41.66666%}.col.s6{width:49.99999%}.col.s7{width:58.33333%}.col.s8{width:66.66666%}
@@ -154,7 +163,6 @@ a{background-color: white!important}
 .display-topmiddle{position:absolute;left:50%;top:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
 .display-bottommiddle{position:absolute;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
 .display-container:hover .display-hover{display:block}.display-container:hover span.display-hover{display:inline-block}.display-hover{display:none}
-.mySlides {display:none}
 .fa {cursor:pointer}
 .tag {height:15px;width:15px;padding:0;margin-top:6px}
 .product {max-width: 100%;} 
