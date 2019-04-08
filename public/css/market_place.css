@@ -201,3 +201,7 @@ input[type=text]:focus, input[type=text]:hover  {
 .col.l5{width:41.66666%}.col.l6{width:49.99999%}.col.l7{width:58.33333%}.col.l8{width:66.66666%}
 .col.l9{width:74.99999%}.col.l10{width:83.33333%}.col.l11{width:91.66666%}.col.l12{width:99.99999%}}
 /* For the ITEMS in marketplace */
+
+.row-padding a {
+	text-decoration: none;
+}
