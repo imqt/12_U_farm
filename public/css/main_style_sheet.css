@@ -21,7 +21,7 @@ body {
     width: 100%; /* Fill the screen */
     height: 50px;
     overflow: hidden;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     z-index: 99!important;    
 }
 
@@ -62,6 +62,9 @@ body {
     overflow-x: hidden;
     -webkit-transition-duration: 0.6s; /*Smooth effect*/
     transition-duration: 0.6s; /*Smooth effect*/
+}
+.sidenav div{
+    margin-left: 20px;
 }
 .sidenav:hover {
     background-color: rgb(248, 248, 248);
