@@ -228,6 +228,7 @@
                         <option value="kilograms">kilograms</option>
                     </select></p>
                 <p><strong>Pickup date</strong><input class="input border" type="date" placeholder="" id="pickup2" required></p>
+                <p><strong>Pickup Time</strong><input class="input border" type="time" id="pickuptime"</p>    
 
                 <div class="center">
                     <button type="button" class="button padding-large green margin-bottom" id='order'>Order</button>
@@ -322,12 +323,14 @@
                 [key]: {
                     CustName: current[0],
                     Quantity: document.getElementById('quantity2').value + ' ' + document.getElementById('weight2').value,
-                    Produce: document.getElementById('pro02'),
+                    Produce: document.getElementById('pro02').innerHTML,
                     Day: date.slice(8, 10),
                     Month: date.slice(5, 7),
                     Year: date.slice(0, 4),
                     UserId: current[2],
-                    FarmerID: document.getElementById('FarmerID').innerHTML
+                    FarmerID: document.getElementById('FarmerID').innerHTML,
+                    Number: unique,
+                    Pickup: document.getElementById('pickuptime').value 
                 }
             });
             firebase.database().ref("Orders/").update({
