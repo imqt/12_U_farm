@@ -159,13 +159,14 @@
                         dict_of_orders = snap.val();
                         all_orders = Object.keys(dict_of_orders);
                         all_details = Object.values(dict_of_orders);
-                        for (let i=0; i<all_orders.length;i++) {
+                        for (let i=0; i<all_orders.length-1;i++) {
                             let tr = document.createElement("tr");
                             tr.id = all_orders[i];
                             document.getElementById('dailyDetails').appendChild(tr);
                             let details = all_details[i];
+                            let month = details['Month'] - 1;
                             let full_order = []
-                            full_order.push(details['Month']);
+                            full_order.push(month);
                             full_order.push(details['Day']);
                             full_order.push(details['Year']);
                             full_order.push(details['FarmerID']);
@@ -178,9 +179,9 @@
                                 let td = document.createElement("td");
                                 tr.appendChild(td);
                                 td.innerHTML = full_order[j];
-                                console.log(full_order[j])
                             }          
                         }
+                        filterTable();
                     }
                 )
             }
@@ -268,7 +269,10 @@
                 row = table.getElementsByTagName("tr");
                 for (i = 1; i < row.length; i++) {
                     order = row[i].getElementsByTagName("td");
-                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year && order[3] == current[2]) {
+                    console.log(order[3].innerHTML)
+                    console.log(current[2])
+                    console.log(order[3].innerHTML == current[2])
+                    if (order[0].innerHTML == current_month && order[1].innerHTML == current_date && order[2].innerHTML == current_year && order[3].innerHTML == current[2]) {
                         row[i].style.display = "table-row";
                     } 
                     else {
@@ -339,7 +343,6 @@
             buildCalendar();
             setMainDate();
             setCalendarDate();
-            filterTable();
 
             document.getElementById("leftarrow").onclick = leftarrowclick;
             document.getElementById("rightarrow").onclick = rightarrowclick;
